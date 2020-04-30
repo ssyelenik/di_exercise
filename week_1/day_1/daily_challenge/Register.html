@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel = "stylesheet" href="Course.css">
+</head>
+<body>
+	<nav>
+		<a href = "index.html">Home</a><br><br>
+		<a href = "First Lesson.html">First Lesson</a>
+	</nav>
+	<h1>Welcome to Sharon's English Psychometric Course!</h1>
+	<p>We're so happy you decided to join! Please fill out all the information!</p>
+	<form>
+		First Name: <input type="text" name="FirstName"><br>
+		Last Name: <input type="text" name="LastName"><br>
+		Birth Date: <input type="date" name="BirthDate"><br>
+		Password: <input type="text" name="Password" minlength =5><br>
+		Gender: <br>
+			Male: <input type = "radio" name = "gender" value = "Male"><br>
+			Female: <input type = "radio" name = "gender" value = "Female"><br>
+		What score are you aiming for on the Psychometric?<br>
+		<input type="checkbox" name="400-500">400-500<br>
+		<input type="checkbox" name="500-600">500-600<br>
+		<input type="checkbox" name="600-700">600-700<br>
+		<input type="checkbox" name="700-800">700-800<br>
+		How did you hear about us? <br>
+		<select name="Reference">
+			<option value = "WordofMouth">Word of Mouth</option>
+			<option value = "GoogleSearch">Google Search</option>
+			<option value = "Other">Other</option>
+		</select><br>
+		<input type = "submit" value = "Register!">
+		<input type = "reset" value = "Reset">
+	</form>
+</body>
+</html>

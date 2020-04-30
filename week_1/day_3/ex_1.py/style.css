@@ -1,0 +1,97 @@
+body, html {
+	margin-left:4%;
+	margin-right:4%;
+	margin-bottom:4%;
+	margin-top:2%;
+	font-family: 'Lobster', cursive;
+}
+
+
+#Name{
+	font-size:50px;
+	margin-bottom:10px;
+  transition:all 0.3s ease;
+}
+        #Name:hover
+        {
+            box-shadow: inset 0 0 0 100px #53a7ea;
+        }
+
+hr { 
+  display: block;
+  margin-top: 0em;
+  margin-bottom: 2.5em;
+  margin-left: auto;
+  margin-right: 4%;
+  border-style: inset;
+  border-width: 2px;
+} 
+
+#Profession{
+	margin-top:0%;
+	color:grey;
+  	font-weight: bold;
+
+}
+
+#Description{
+	font-family: 'Oswald', sans-serif;
+}
+
+#Personal_Info{
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px;
+  background-color: lightgrey;
+  width: 96%;
+  padding: 2px;
+  margin-left: 0px;
+  margin right:4%;
+}
+
+.Section_Title{
+	font-variant:small-caps;
+	color:brown;
+	font-family: 'Oswald', sans-serif;
+	font-size: 45px;
+}
+
+#Skills{
+  display: grid;
+  grid-template-columns: 15% 78%;
+  margin-right:4%;
+  margin-left:0%;
+  grid-gap: 20px;
+  justify-content: space-between;
+  padding: 0px;
+}
+
+#Skills > div {
+  text-align: left;
+  padding: 10px 0;
+  font-size: 20px;
+}
+.Title{
+	font-weight:bold;
+	font-size:25px; 
+	margin-bottom:15px;
+	font-family: 'Oswald', sans-serif;
+}
+.Detail{
+	color:grey;
+	font-family: 'Oswald', sans-serif;
+}
+
+#Education{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-right:4%;
+  margin-left:0%;
+  grid-gap: 0px;
+  justify-content: space-between;
+
+}
+
+#Education > div {
+  text-align: left;
+	padding: 10px 0;
+}

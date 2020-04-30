@@ -1,0 +1,67 @@
+body{
+	background-color:black;
+}
+
+.background{
+	width:47vh;
+	height:900px;
+	background-color:white;
+	justify-content:center;
+	margin:0 auto;
+
+}
+
+.container{
+	margin:10px;
+	margin-bottom:50px;
+	display:grid;
+	grid-template-columns:repeat(16,15px);
+	grid-template-rows:repeat(16,15px);
+	grid-gap:1px;
+}
+
+.item1{ 
+	color:rgb(252,134,15);
+	background-color:rgb(252,134,15);
+}
+
+.item2{
+	color: rgb(255,229,180);
+	background-color: rgb(255,229,180);
+}
+
+.item3{
+	color: rgb(141,92,0);
+	background-color: rgb(141,92,0);
+
+}
+
+.item21{ 
+
+	background-color:rgb(217,218,201);
+}
+
+.item22{
+
+	background-color: rgb(211,211,211);
+}
+
+.item23{
+
+	background-color: rgb(128,128,128);
+}
+
+.item24{
+
+	background-color: black;
+}
+
+.item31{
+	background-color:white;
+}
+.item32{
+	background-color:pink;
+}
+.item33{
+	background-color:red;
+}
