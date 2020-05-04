@@ -1,0 +1,441 @@
+//js dictionary object
+function ntsp_jsDict() {
+	//array dicts
+	this.cleanDict = new Array();
+	this.blockDict = new Array();
+	
+	//dictionary for cleaning blocks of html
+	this.cleanRegexStringArrayByLang = new Array();
+	
+	this.cleanRegexStringArrayByLang["en"] = "sex.*|porn|erotic|xxx|adult video|adult only|amateur.*video|horny girls|naughty girl|to have a sex|fuck me |sex&hot girls|escort&girl|girl[sz] making out|girl[sz] showering|"+
+"girl.*topless|m4m[mw]?|m4t|m4w[w]?|minet|onanizm|picture.*nude|I like to fuck|I love sex|sadomaso|sex[\s]?shop|sex[\s]?show|sexy[\s]?tube|strap[\s]?on|strip.*sexy|video.*nude|"+
+"video.*naked|dildo|web[\s]?cam[\s|era[\ssz]|s][\s]?sex|vibrator|hot.*naked|sex[\s]?stor[ies|y]|nude.*celeb";
+	
+	this.cleanRegexStringArrayByLang["he"] = "";
+	this.cleanRegexStringArrayByLang["ar"] = "";
+	this.cleanRegexStringArrayByLang["ru"] = "секс.*|порно.*|эротика|эротич.*|сиськи|письки|пизда|лесб.*|гомосекс.*|голые девушки|проститут.*|пизда|трахать.*|хуй|эскорт услуги|шлюха|откровенные фото.*|разврат.*|ххх видео|интим.*|мастурб.*|оргазм.*|стриптиз.*|хентай|без трусов|без лифчика|обнажен.*";
+	
+	this.cleanRegexString;
+	
+	//dictionary for blocking whole page
+	this.blockRegexStringArrayByLang = new Array();
+	
+	this.blockRegexStringArrayByLang["en"] = "sex.*porn|sex.*erotic|oral.*(sex|stimulation|swallow|porn|fuck)|anal.*(sex|stimulation|swallow|porn).*(lesb|lesbian|gay|gays|slut|milf|sperm|anal|ass|pussy|fuck)|"+
+"sex.*xxx|sex.*naughty\sgirl|booty.*pussy|freeporn|masoc?his.*(nude|picture|video|bitch|fuck|gay|lesb|sex)|teen.*sex" +
+"|his post may contain sensitive content|Adult Content Warning|media may contain sensitive material"+
+"|this media may contain sensitive material|this profile may include potentially sensitive content|the following media includes potentially sensitive content|cam\s?(site|girl)s?|adult\s?(movie|clip)s?|sex tourism|squirt|porn model|rimming|rim\s?job|blow\s?job";
+	
+	this.blockRegexStringArrayByLang["he"] = "אזהרה על תוכן למבוגרים"+
+"|המדיה הבאה עשויה לכלול תוכן רגיש";
+	this.blockRegexStringArrayByLang["ar"] = "";
+	this.blockRegexStringArrayByLang["ru"] = "секс.*|порно.*|эротика|эротич.*|сиськи|письки|пизда|лесб.*|гомосекс.*|голые девушки|проститут.*|пизда|трахать.*|хуй|эскорт услуги|шлюха|откровенные фото.*|разврат.*|ххх видео|интим.*|мастурб.*|оргазм.*|стриптиз.*|хентай|без трусов|без лифчика|обнажен.*";
+	
+	this.blockRegexString;
+	
+	//regex objects
+	this.cleanRegexObj;
+	this.blockRegexObj;
+	
+	//block messages
+	this.cleanBlockMessage = "";
+	this.blockBlockMessage = ntsp_block_page; //global var
+
+	this.setRegex = function(type) {
+		var i = 0;
+		if(type == 1) {
+			//var len = this.blockRegexStringArrayByLang.length;
+			var first = true;
+			this.blockRegexString = "(";
+			for (var x in this.blockRegexStringArrayByLang){
+				if(x.length==2 && this.blockRegexStringArrayByLang[x] && this.blockRegexStringArrayByLang[x] != "") {
+					if(!first){
+						this.blockRegexString += "|";
+					}else{
+						first = false;
+					}
+					this.blockRegexString += this.blockRegexStringArrayByLang[x];
+				}
+				//if(i++ < len) this.blockRegexString += "|";
+			}
+			this.blockRegexString += ")";
+			this.blockRegexObj = new RegExp("[\\s<>#_]" + this.blockRegexString + "[\\s\\.!?<>#_]", 'i');
+		} 
+		else {
+			//var len = this.cleanRegexStringArrayByLang.length;
+			this.cleanRegexString = "(";
+			var first = true;
+			for (var x in this.cleanRegexStringArrayByLang){
+				if(x.length==2 && this.cleanRegexStringArrayByLang[x] && this.cleanRegexStringArrayByLang[x] != "") {
+					if(!first){
+						this.cleanRegexString += "|";
+					}else{
+						first = false;
+					}
+					this.cleanRegexString += this.cleanRegexStringArrayByLang[x];
+					
+				}
+				//if(i++ < len) this.cleanRegexString += "|";
+			}
+			this.cleanRegexString += ")";
+			this.cleanRegexObj = new RegExp("\\s" + this.cleanRegexString + "[\\s\.!?]", 'i');
+		}
+	}
+	
+	this.setDictionary = function(dict_array, type) {
+		if(dict_array instanceof Array) { //check if array
+			if(type == 1) {
+				this.blockDict = dict_array;
+			} else {
+				this.cleanDict = dict_array;
+			}
+		} else {
+			throw new Error('Dictionary should be an Array.');
+		}
+	}
+	
+	this.buildCleanRegex = function() {
+		this.cleanRegexString = '(';
+		var len = this.cleanDict.length;
+		for(i=0; i<len; i++) {
+			this.cleanRegexString += this.cleanDict[i];
+			this.cleanRegexString += "|";
+		}
+		this.cleanRegexString += this.cleanDict[0];
+		this.cleanRegexString += ')';
+		
+		this.cleanRegexObj = new RegExp(this.cleanRegexString, 'i');
+	}
+	
+	this.buildBlockRegex = function() {
+		this.blockRegexString = '(';
+		var len = this.blockDict.length;
+		for(i=0; i<len; i++) {
+			this.blockRegexString += this.blockDict[i];
+			this.blockRegexString += "|";
+		}
+		this.blockRegexString += this.blockDict[0];
+		this.blockRegexString += ')';
+		
+		this.blockRegexObj = new RegExp(this.blockRegexString, 'i');
+	}
+	
+	this.cleanMatch = function(data) {
+		var result = this.cleanRegexObj.test(" " + data + " ");
+		if(result) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	this.blockMatch = function(data) {
+		var result = this.blockRegexObj.test(data);
+		if(result) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+}
+
+function defaultHandler() {return false}
+function silentHandler()  {return true}
+function customHandler(desc,page,line,chr)  {
+ alert(
+  'JavaScript error occurred! \n'
+ +'The error was handled by '
+ +'a customized error handler.\n'
+ +'\nError description: \t'+desc
+ +'\nPage address:      \t'+page
+ +'\nLine number:       \t'+line
+ )
+ return true
+}
+
+//window.onerror = customHandler;
+
+// dictionary Object declaration
+var dictionaryObject;
+//------------------------------
+
+function stripHTML1(oldString) {
+   var newString = "";
+   var inTag = false;
+
+   for(var i = 0; i < oldString.length; i++) {   
+        if(oldString.charAt(i) == '<'){
+			inTag = true;
+			newString += " ";
+		}
+        if(oldString.charAt(i) == '>') {
+			newString += " ";
+              if(oldString.charAt(i+1)=="<"){
+              		//dont do anything
+				}else{
+					inTag = false;
+					i++;
+				}
+        }
+        if(!inTag) newString += oldString.charAt(i);
+   }
+   return newString;
+}
+
+function stripHTML(oldString) {
+   var newString = "";
+   var inTag = false;
+   var next_index = oldString.indexOf("<");
+   if(next_index == -1) return " "+oldString+" ";
+   newString = " " + oldString.substring(0,next_index) + " ";
+   
+   for(var i = next_index; i < oldString.length && i>=0;) {   
+        if(oldString.charAt(i) == '<'){
+			inTag = true;
+			i = oldString.indexOf(">",i);
+		}
+        if(oldString.charAt(i) == '>') {
+              if(oldString.charAt(i+1)=="<"){
+					i++;
+					continue;
+				}else{
+					inTag = false;
+					i++;
+				}
+        }
+        if(!inTag){
+			next_index = oldString.indexOf("<",i);
+			if(next_index==-1){
+				next_index=oldString.length;
+			}
+			newString += " " + oldString.substring(i,next_index) + " ";
+			i=next_index;
+		}
+   }
+   return newString;
+}
+
+function cleanAttributes(node) {
+	if(node.nodeName === 'A') {
+		node.href = "#";
+	} else {
+		if(node.onclick != null) {
+			node.onclick = "javascript:void(0);";
+		}
+	}
+}
+
+function getInnerText(child_nodes){
+	var rslt = '';
+	for (var i = 0; i < child_nodes.length; i++) {
+		if(child_nodes[i].nodeType == 3) {
+			rslt += stripHTML(child_nodes[i].textContent) + " ";
+		}
+	}
+	return rslt;
+}
+
+var loops = 0;
+var innertxt = '';
+function nodeClean(node) {	
+	loops++;
+	if(node.nodeType == 3 || 'SCRIPT' === node.nodeName || 'STYLE' === node.nodeName) return 0;
+	if(!node.hasChildNodes()) return 0;
+	
+	var childs,child_nodes;
+	var my_length,dirty_len,dirty_nodes,result_len,inner_text;
+	var strip_node_html = stripHTML(node.innerHTML);
+	my_length = strip_node_html.length;
+	dict_status = dictionaryObject.cleanMatch(strip_node_html);
+	//if(!dict_status)alert("len:" + my_length+", dicstatus:"+dict_status+",html:"+node.innerHTML);
+	if(my_length>2 && dict_status){
+		child_nodes = node.childNodes;
+		inner_text = getInnerText(child_nodes);
+		//innertxt += inner_text + "<br/>";
+		//alert(child_nodes[0].nodeName+" "+child_nodes.length+ " type:" + child_nodes[0].nodeType + ",has child:"+node.hasChildNodes()+",innertext:"+inner_text+",html:"+node.innerHTML);		
+		if(inner_text.length > 2 && dictionaryObject.cleanMatch(inner_text)){
+			node.style.display = 'none';
+			node.innerHTML = dictionaryObject.cleanBlockMessage;
+			cleanAttributes(node);
+			return my_length;
+		}
+		
+		dirty_len = 0; dirty_nodes = 0;
+		for (var i = 0; i < child_nodes.length; i++) {
+			if(typeof child_nodes[i] === "undefined") continue; //undefined verification
+			result_len = nodeClean(child_nodes[i]);
+			if(result_len>0){
+				dirty_len += result_len;
+				dirty_nodes++;
+			}				
+		}
+		//innertxt += dirty_len +" "+ my_length + "<br/>";
+		if((100.0*dirty_len/my_length)>30 /*|| (100.0*dirty_nodes/child_nodes.length)>30*/){
+		//alert(child_nodes[0].nodeName+" "+child_nodes.length+ " type:" + child_nodes[0].type + ",has child:"+node.hasChildNodes()+",html:"+node.innerHTML);
+			node.style.display = 'none';
+			node.innerHTML = dictionaryObject.cleanBlockMessage;
+			cleanAttributes(node);
+			return my_length;
+		}
+	}
+	return 0;
+}
+
+var ntsp_body_display_none = -1;
+function too_much_block_images(){
+	try{
+		//setTimeout(too_much_block_images, 2000)
+		var images = 0;
+		var block_images = 0;
+		var all_images_src = [];
+		for (var i = 0; i < document.images.length; i++) {
+			var img = document.images[i];
+			var is_block = false;
+			if (img.complete && (img.fileSize!=undefined || (img.naturalHeight!=undefined && img.naturalHeight>0) )) {
+				var src = img.src + "";
+			        if(src in all_images_src)continue;
+			        all_images_src[src]=true;
+				images++;
+				if((img.fileSize!=undefined && img.fileSize==631) || (img.naturalHeight!=undefined && img.naturalHeight==1 && img.naturalWidth!=undefined && img.naturalWidth==1 )){
+					is_block = true;
+					block_images++;
+				}
+			}else if(img.style.backgroundImage){
+				var image1 = new Image();
+   				image1.src = imageSrc;
+				if(image1.width!=undefined && image1.width>0 ){
+					images++;
+					if(image1.width == 1 && image1.height==1){
+						is_block = true;
+						block_images++;
+					}
+				}
+			}
+			if(is_block){
+				var parent=img.parentElement;
+				if(parent.innerHTML.search(/<video|<object|<embed|\.mp4|\.avi/im)==-1 && parent && parent.childNodes.length<3 && parent.parentElement){
+				  parent = parent.parentElement;
+				  if(parent.innerHTML.search(/<video|<object|<embed|\.mp4|\.avi/im)==-1 && parent && parent.childNodes.length<3 && parent.parentElement){
+					parent = parent.parentElement;
+				  }  
+				}
+				//console.log("parent child nodes:" + parent.childNodes.length + (parent.innerHTML.search(/<video|<object|<embed|\.mp4|\.avi/im)!=-1?' video':' not video'))
+				if(parent.innerHTML.search(/<video|<object|<embed|\.mp4|\.avi/im)!=-1 && parent.innerHTML.length<3000 ){
+				//	parent.style.display='';
+				  parent.innerHTML = '';
+				}
+			}
+		}
+		//console.log("results:"+images+",bi:"+block_images+",bp:"+(1.0*block_images/(1.0*images)));
+		if(images>40 && (1.0*block_images/(1.0*images))>0.5){
+			document.location=ntsp_block_page+'&fbim=1&ai='+images+'&bi='+block_images;
+			//console.log("block - locate to "+ntsp_block_page);
+		}else{
+			if(ntsp_body_display_none==1){
+				var bodyObject = document.getElementsByTagName('body')[0];
+				if(bodyObject.style.display=='none'){
+					//console.log("not block - redisplay,display state:"+bodyObject.style.display+",ntsp_body_display_none:"+ntsp_body_display_none);
+					bodyObject.style.display='';
+				}else{
+					//console.log("not block - already display");
+				}
+				ntsp_body_display_none = 0;
+			}
+		}
+	}catch(err) {
+		//alert(err.message);
+		//console.log("error:"+err.message);
+	}	
+}
+
+var ntsp_in_onload_process = false; //global mutex
+function initQuilter() {
+	if(ntsp_in_onload_process) return;
+	ntsp_in_onload_process = true;
+	if(typeof ntsp_url_level=="undefined"){
+		var gebn=document.getElementsByName('ntsp_url_level');
+		if(gebn.length) ntsp_url_level=gebn[0].value;
+	}
+	if(typeof ntsp_user_level=="undefined"){
+		var gebn=document.getElementsByName('ntsp_user_level');
+		if(gebn.length) ntsp_user_level=gebn[0].value;
+	}
+	if(typeof ntsp_block_page=="undefined"){
+		var gebn=document.getElementsByName('ntsp_block_page');
+		if(gebn.length) ntsp_block_page=gebn[0].value;
+	}
+	
+	//var t1 = new Date();
+	try {
+		if( /^(.*\.)?vimeo\./.test(window.location.hostname) ){
+			try{
+				if(document.getElementById('brozar')){
+					document.getElementById('brozar').style.display='none';
+				}
+				if(document.getElementById('brozar_toggle_wrapper')){
+					document.getElementById('brozar_toggle_wrapper').style.display='none';
+				}
+				if(document.getElementById('js-extras-wrapper extras_wrapper clearfix')){
+					document.getElementById('js-extras-wrapper extras_wrapper clearfix').style.display='none';
+				}
+				if(document.getElementById('extras')){
+					document.getElementById('extras').style.display='none';
+				}
+
+			}catch(err) {}
+		}
+		dictionaryObject = new ntsp_jsDict();
+		
+		dictionaryObject.setRegex(0);
+		dictionaryObject.setRegex(1);
+		
+		var bodyObject = document.getElementsByTagName('body')[0];
+		//run block check
+		//if(ntsp_url_level!=0){
+			var empty_page = dictionaryObject.blockMatch(bodyObject.innerHTML);
+			if(empty_page) {
+				//bodyObject.innerHTML = dictionaryObject.blockBlockMessage;
+				document.location = dictionaryObject.blockBlockMessage; //go to block page
+			} else { //else clean filter
+				txtnodes = nodeClean(document.getElementsByTagName('body')[0]);
+			}
+		//}
+
+		//console.log("first call to too_much_block_images");
+		//console.log("ntsp_url_level:"+ntsp_url_level+",ntsp_user_level:"+ntsp_user_level);
+		if(ntsp_url_level<=0 && ntsp_user_level<=0){
+			if(ntsp_body_display_none==-1){
+				//bodyObject.style.display='none';
+				ntsp_body_display_none = 1;
+			}
+			setTimeout(too_much_block_images, 2000)
+		}
+		
+	}
+	catch(err) {
+		//alert(err.description);
+		ntsp_in_onload_process = false;
+	}
+	//var t2 = new Date();
+	//var add_to_header = "<h2>"+(t2-t1)/1000.0+" seconds.</h2>";
+	//document.getElementsByTagName('body')[0].innerHTML = add_to_header + document.getElementsByTagName('body')[0].innerHTML;
+	ntsp_in_onload_process = false;
+}
+
+
+function ntsp_onload(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	}
+	else {
+		window.onload = function() {
+			oldonload();
+			func();
+		}
+	}
+}
+
+ntsp_onload(initQuilter);
+initQuilter();
+setInterval(initQuilter,1000);
