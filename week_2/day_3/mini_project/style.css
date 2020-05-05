@@ -1,0 +1,52 @@
+
+.background-pic{
+  background-image: url(dead_sea.jpg);
+  background-repeat: no-repeat;
+  background-size:100%;
+  margin-left:0;
+  margin-right:-20px;
+  padding:0px;
+  height:400px;
+}
+
+.badge-place{
+  padding-top:10px;
+}
+
+/*Submit button on the navbar*/
+.button-color{
+  background-color:#17A2B8; 
+  margin-left:10px;
+}
+.jumbotron-background{
+  background-image:url(dead_sea.jpg); 
+  color:white; 
+  padding-top:150px; 
+  background-repeat: no-repeat; 
+  background-size: 100%; 
+  margin-right:-50px; 
+  margin-top:-40px;
+}
+.jumbotron-button{
+  font-size:20px; margin:30px;
+}
+.space-left{
+  margin-left:20px;
+}
+.columning{
+  border:30px solid white; 
+  margin-left:50px; 
+  margin-top:50px;
+}
+.label-place{
+  margin-right:10px;
+}
+.column-heading{
+  text-align:center; 
+  display:inline-block; 
+  margin-top:0px;
+
+}
+.button-size{
+  font-size:30px;
+}

@@ -1,0 +1,38 @@
+
+.text_center{
+	text-align: center;
+}
+
+.jumbotron-place{
+	margin-bottom:0;
+}
+.search-place{
+	margin-top:0px;
+	display:relative;
+	left:80%;
+}
+
+.nav-place{
+	background-color:#343A40;
+}
+.heading{
+	margin-top:15px;
+	text-align:center;
+}
+.heading2{
+	margin-top:110px;
+}
+.search-place{
+	justify-content:flex-end;
+	padding-top:20px;
+}
+
+img{
+	height:200px;
+	width:200px;
+	margin:10px;
+}
+.pic-collection{
+	display:flex;
+	justify-content:center;
+}

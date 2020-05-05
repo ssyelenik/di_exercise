@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap Webpage</title>
+	<meta name="viewport" content="width-devce-width, initial-scale-1, shrink-to-fit-no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top " >
+		<div class="btn-group">
+		  <button type="button" class="btn btn-info">Action</button>
+		  <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    <span class="sr-only">Toggle Dropdown</span>
+		  </button>
+		  <div class="dropdown-menu">
+		    <a class="dropdown-item" href="#">Action</a>
+		    <a class="dropdown-item" href="#">Another action</a>
+		    <a class="dropdown-item" href="#">Something else here</a>
+		    <div class="dropdown-divider"></div>
+		    <a class="dropdown-item" href="#">Separated link</a>
+		  </div>
+		</div>
+	  <a class="navbar-brand space-left" href="#">Navbar</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	    <div class="navbar-nav">
+
+	      <a class="nav-item nav-link" href="#">Contact</a><span class="badge badge-secondary badge-place" >052-812-8937</span>
+	      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+	      <a class="nav-item nav-link" href="#">Pricing</a>
+
+	    </div>
+	  </div>
+
+<form class="form-inline" action="/action_page.php">
+<!--   <label for="email">Email address:</label> -->
+  <input type="email" class="form-control" placeholder="Enter email" id="email">
+<!--   <label for="pwd">Password:</label> -->
+  <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+  <div class="form-check">
+    <label class="form-check-label label-color" style="color:white!important;">
+      <input class="form-check-input" type="checkbox" > Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary button-color">Submit</button>
+</form>
+
+	</nav>
+	<div class="jumbotron jumbotron-fluid foreground-opacity text-center jumbotron-background"  >
+	  <div class="container">
+	    <h1 class="display-4">Fluid jumbotron</h1>
+	    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+	    <button type="button" class="btn btn-primary jumbotron-button" >Learn more</button>
+	  </div>
+
+	  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+		  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    <span aria-hidden="true">&times;</span>
+		  </button>
+	  </div>
+	</div>
+</div>
+
+		<div class="row columning" >
+			<div class="col-md-4" >
+				<h2 class="column-heading">Great Deal!</h2>
+				<div><img class="little_icons" src="cell-phone.png"></div>
+				<p>Far far away, behind the word mountains, far from the countries Vokaka and Consonantia, there live the blind texts Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+				<button type="button" class="btn btn-info">
+				   <span class="glyphicon glyphicon-pencil btn-l"></span> View details
+				</button>
+			</div>
+			<div class="col-md-4">
+				<h2 class="column-heading">Don't Miss!</h2>
+				 <div class="grid-item"><img class="little_icons" src="wallet.png"></div>
+				 <p>A small river named Duden flows by their place and supplies it with the necessary regalia. It is a pair adserthaic country, in which roasted parts of sentences fly into your mounth.</p>
+				  <div>
+  				<button type="button" class="btn btn-info">
+				   <span class="glyphicon glyphicon-th-list btn-l"></span> View details
+				</button>
+  				</div>
+
+			</div>
+			<div class="col-md-4">
+				
+				<span class="label label-default label-place">New</span><h2 class="column-heading">Special Deal!</h2> 
+
+				<div class="grid-item"><img class="little_icons" src="idea.png"></div>
+				<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life. One day, however, a small line of blind text by the name of Lorem ipsum decided to leave for the far World of Grammar.</p>
+			
+				<button type="button" class="btn btn-info">
+				   <span class="glyphicon glyphicon-film btn-l"></span> View details
+				</button>
+				   
+
+			</div>
+
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</html>
