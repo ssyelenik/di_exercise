@@ -40,7 +40,7 @@ function findLongestWord(words){
 }
 
 /*Function:Format Stars*/
-function buildStars(){
+function buildStars(longestWord){
 	let stars="";
 
 	for(let i=0; i<longestWord.length+4; i++){
@@ -87,7 +87,7 @@ longestWord=findLongestWord(words);
 /*Format*/
 /*Stars*/
 
-let stars=buildStars();
+let stars=buildStars(longestWord);
 
 
 /*Print Each Word*/
