@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Challenge: Create a solar system</title>
+        <style>
+            body {
+                background-color: black;
+                padding: 10px;
+            }
+            .planet {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                text-align: center;
+                padding: 10px;
+                position: relative;
+            }
+            .moon {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background: rgb(237, 237, 237);
+            }
+
+            .moon_next{
+              top:70px;
+              left:70px;
+            }
+
+            .mercury{
+              background-color:pink;
+            }
+
+            .venus{
+              background-color:yellow;
+            }
+
+            .earth{
+              background-color:green;
+            }
+
+            .mars{
+              background-color:darkblue;
+            }
+        </style>
+    </head>
+    <body>
+
+
+    <script>
+      let solarSystem=["mercury", "venus", "earth", "mars"];
+      solarSystem[0]=document.createElement("div");
+      document.body.appendChild(solarSystem[0]);
+      document.body.getElementsByTagName("div")[0].classList.add("planet");
+      document.body.getElementsByTagName("div")[0].classList.add("mercury");
+      console.log(document.body.getElementsByTagName("div")[0].getAttribute("class"));
+
+
+      solarSystem[1]=document.createElement('div');
+      document.body.appendChild(solarSystem[1]);
+      document.body.getElementsByTagName("div")[1].classList.add("planet");
+      document.body.getElementsByTagName("div")[1].classList.add("venus");
+      console.log(document.body.getElementsByTagName("div")[1].getAttribute("class"));
+
+      solarSystem[2]=document.createElement('div');
+      document.body.appendChild(solarSystem[2]);
+      document.body.getElementsByTagName("div")[2].classList.add("planet");
+      document.body.getElementsByTagName("div")[2].classList.add("earth");
+      console.log(document.body.getElementsByTagName("div")[2].getAttribute("class"));
+
+      solarSystem[3]=document.createElement('div');
+      document.body.appendChild(solarSystem[3]);
+      document.body.getElementsByTagName("div")[3].classList.add("planet");
+      document.body.getElementsByTagName("div")[3].classList.add("mars");
+      console.log(document.body.getElementsByTagName("div")[3].getAttribute("class"));
+
+
+      let moons=["moon0", "moon1", "moon2"];
+      moons[0]=document.createElement("div");
+      document.body.getElementsByTagName("div")[0].appendChild(moons[0]);
+      document.body.getElementsByTagName("div")[0].firstElementChild.classList.add("moon");
+      console.log(document.body.getElementsByTagName("div")[0].firstElementChild.getAttribute("class"));
+
+      moons[1]=document.createElement("div");
+      document.body.getElementsByTagName("div")[2].appendChild(moons[1]);
+      document.body.getElementsByTagName("div")[2].firstElementChild.classList.add("moon");
+      console.log(document.body.getElementsByTagName("div")[2].firstElementChild.getAttribute("class"));
+
+      moons[2]=document.createElement("div");
+      document.body.getElementsByTagName("div")[0].insertBefore(moons[2], document.body.getElementsByTagName("div")[0].firstElementChild);
+      document.body.getElementsByTagName("div")[0].firstElementChild.classList.add("moon");
+      console.log(document.body.getElementsByTagName("div")[0].firstElementChild.classList.add("moon_next"));
+      console.log(document.body.getElementsByTagName("div")[0].firstElementChild.getAttribute("class"));
+    </script>
+    </body>
+</html>
