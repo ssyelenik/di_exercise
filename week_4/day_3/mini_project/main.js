@@ -65,6 +65,7 @@ function my_f(arg){
 		if(num1!="" && op!="" && num2!=""){
 			num2="";
 			displayBox.textContent="";
+			decimal=false;
 		}
 		else if(num1!="" && op!="" && num2==""){
 			op="";
@@ -72,6 +73,7 @@ function my_f(arg){
 		else if(num1!="" && op=="" && num2==""){
 			num1="";
 			displayBox.textContent="";
+			decimal=false;
 		}
 		else{
 			displayBox.textContent="";
