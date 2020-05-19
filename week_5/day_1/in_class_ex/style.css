@@ -1,0 +1,55 @@
+.outputScreen{
+    border:2px solid blue;
+    border-radius:5px;
+    height:50px;
+    width:377px;
+    padding-top:7px;
+
+    font-size:30px;
+    margin-left:0!important;
+}
+
+.container {
+    margin-left: 20px;
+    padding-top: 5px;
+
+    height: 450px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.myBackground{
+        background-color: #FAFFC9;
+}
+
+
+.num{
+    background-color:lightgreen;
+    width:90px;
+    margin-top:5px;
+    color:white;
+    font-size:30px;
+}
+.op{
+    background-color:orange;
+    width:90px;
+    margin-top:5px;
+    color:white;
+    font-size:30px;
+}
+
+.reset{
+    background-color:blue;
+    width:184px;
+    margin-top:5px;
+    color:white;
+    font-size:30px;
+}
+
+.clear{
+    background-color:red;
+    width:184px;
+    margin-top:5px;    
+    color:white;
+    font-size:30px;
+}

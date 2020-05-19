@@ -1,21 +1,46 @@
-/*Ex. 1
-#1*/
-document.getElementsByTagName("div")[0].setAttribute("id", "socialNetworkNavigation");
-console.log(document.getElementsByTagName("div")[0].getAttribute("id"));
 
-/*#2*/
+let allBooks=[
+{
+	title:"Gone With The Wind",
+	author:"Margaret Mitchell",
+	image:"https://i2.wp.com/8bitisland.co.nz/wp-content/uploads/2019/03/gone-with-the-wind.jpg?resize=750%2C430&ssl=1",
+	alreadyRead:true
+},
+{
+	title:"The Chosen",
+	author:"Chaim Potok",
+	image:"https://thechosencphs.weebly.com/uploads/2/0/4/2/20429393/6722074.jpg?442",
+	alreadyRead:false
+}
+]
 
-let li=document.createElement("li");
-let text=document.createTextNode("Logout");
-li.appendChild(text);
-document.body.getElementsByTagName("ul")[0].appendChild(li);
+
+let table = document.body.firstElementChild;
+
+/*for (i=1; i<3; i++){
+	for (x=0; x<3; x++){
+		for(let a in allBooks[i-1]){
+			console.log(allBooks[i-1][a]);
+			table.getElementsByTagName("tr")[i].getElementsByTagName("td")[x].textContent=allBooks[i-1].a;
+		}
+	}
+}*/
 
 
-/*Bonus*/
+table.getElementsByTagName("tr")[1].getElementsByTagName("td")[0].textContent=allBooks[0].title;
+table.getElementsByTagName("tr")[1].getElementsByTagName("td")[1].textContent=allBooks[0].author;
+table.getElementsByTagName("tr")[1].getElementsByTagName("td")[2].innerHTML='<img src="'+allBooks[0].image+'" width="100"/>';
 
-let firstLi=document.getElementsByTagName("ul")[0].firstElementChild.textContent;
-console.log(firstLi);
+table.getElementsByTagName("tr")[2].getElementsByTagName("td")[0].textContent=allBooks[1].title;
+table.getElementsByTagName("tr")[2].getElementsByTagName("td")[1].textContent=allBooks[1].author;
+table.getElementsByTagName("tr")[2].getElementsByTagName("td")[2].innerHTML='<img src="'+allBooks[1].image+'" width="100"/>';
 
-let lastLi=document.getElementsByTagName("ul")[0].lastElementChild.textContent;
-console.log(lastLi);
+if (!allBooks[0].alreadyRead){
+	console.log("here");
+	table.getElementsByTagName("tr")[1].style.color="red";
+}
 
+if (!allBooks[1].alreadyRead){
+	console.log("here");
+	table.getElementsByTagName("tr")[2].style.color="red";
+}

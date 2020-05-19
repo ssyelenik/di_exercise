@@ -1,0 +1,188 @@
+<!DOCclass html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+<!--     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="main.js" charset="utf-8"></script> -->
+    <!-- <style>
+        button {
+            width: 70px;
+            height: 70px;
+        }
+    </style> -->
+</head>
+
+<body>
+    <article>
+        <h1> Some Facts </h1>
+        <h2> The CHOCOLATE </h2>
+        <p>Chocolate is made from tropical Theobroma cacao tree seeds. Its earliest use dates back to the Olmec civilization in Mesoamerica.</p>
+        <p> After the European discovery of the Americas, chocolate became very popular in the wider world, and its demand exploded. </p>
+        <p>  Chocolate has since become a popular food product that millions enjoy every day, thanks to its unique, rich, and sweet taste.</p> 
+        <p> But what effect does eating chocolate have on our health?</p> 
+    </article>
+    What is your name ?<input type="text" name="userName">
+    What did you think of the article ?<input type="text" name="questionToUser">
+    <button name="submit" type="submit" value="submit">Submit</button>
+    <div style="margin-top:20px; margin-bottom:20px"><strong>Hello</strong> I hope you are enjoying <strong>this</strong> class.At the
+        <strong>end</strong> you <strong>will</strong> be great Developers!
+        <strong>Enjoy</strong> the <strong>JavaScript </strong> lessons
+    </div>
+</body>
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+    
+    // Exercise 1
+
+    // #1 Give to all paragraphs inside the article tag the class para_article
+
+        let paragraphs=document.getElementsByTagName("p");
+        for (i=0; i<paragraphs.length; i++){
+            paragraphs[i].className="para_article";
+            console.log(paragraphs[i].className);
+        }
+
+    /*#2 Remove the last paragraph in the article.*/
+    console.log (paragraphs);
+        let articleElem=document.getElementsByTagName("article")[0];
+        let remChild=paragraphs[paragraphs.length-1];
+        articleElem.removeChild(remChild);
+    
+
+    /*#3 Add an event listener so that when you click on the h2, it is removed from the DOM.*/
+
+        let h2=document.getElementsByTagName("h2")[0];
+        h2.addEventListener("click", eliminate);
+
+        function eliminate(e){
+            articleElem.removeChild(this);
+        }
+
+    /*#4 Set the font size of the h1 to be a random pixel size from 0 to 100.*/
+
+        let randomSize=Math.floor(Math.random() * 101); 
+        let h1=document.getElementsByTagName("h1")[0];
+        console.log(h1);
+        h1.style.fontSize=randomSize;
+
+    /*#5 Hide the 1st paragraph, when it’s clicked*/
+
+        let firstPara=document.getElementsByTagName("p")[0];
+        firstPara.addEventListener("click", hidePara)
+        
+        function hidePara(e){
+            this.style.display="none";
+        }
+
+    /*#6 Fade out the 2nd paragraph over 2000 milliseconds, when it’s clicked*/
+
+        let secondPara=document.getElementsByTagName("p")[1];
+        secondPara.addEventListener("click", fadePara);
+
+        function fadePara(e){
+
+            this.style.transition= "ease-in-out 2000ms";
+            this.style.opacity="0";
+        }
+
+
+ /*   #7 Get the value in the inputs and append it to the end of the html, inside a table*/
+
+
+        let submitButton=document.getElementsByTagName("button")[0];
+        submitButton.addEventListener("click", makeTable);
+        let x=0;
+        let y=1;
+
+
+
+
+
+
+
+
+        function makeTable(e){
+
+
+            let inputElem1=document.getElementsByTagName("input")[0];
+            let inputElem2=document.getElementsByTagName("input")[1];
+            let first=inputElem1.value;
+            let second=inputElem2.value;
+            let tr=document.createElement("tr");
+    
+            let td1=document.createElement("td");
+            let text1 = document.createTextNode(first);
+
+            td1.appendChild(text1);
+            tr.appendChild(td1);
+   
+              
+            
+            let td2=document.createElement("td");
+            let text2 = document.createTextNode(second);
+
+            td2.appendChild(text2);
+            tr.appendChild(td2);
+    
+            document.body.appendChild(tr);
+
+
+
+            let newCell0=document.getElementsByTagName("td")[x];
+            newCell0.style.background="lightgrey";
+            newCell0.style.fontSize="50px";
+            newCell0.style.border="2px solid pink"
+            newCell0.style.width="auto";
+            newCell0.style.textAlign="center";
+            newCell0.style.margin="10px"; 
+  
+            
+            let newCell1=document.getElementsByTagName("td")[y];
+            newCell1.style.background="pink";
+            newCell1.style.fontSize="50px";
+            newCell1.style.border="2px solid grey"
+            newCell1.style.width="auto";
+            newCell1.style.textAlign="center";
+            newCell1.style.margin="10px";
+
+            x=x+2;
+            y=y+2;
+
+        }
+
+
+
+/*Exercise 2
+
+#1*/
+        let newDiv=document.getElementsByTagName("div")[0];
+        let arrayBold=[];
+        let boldItems=newDiv.getElementsByTagName("strong");
+        getBold_items();
+        newDiv.addEventListener("mouseover", highlight);
+        newDiv.addEventListener("mouseout", return_normal);
+
+        function getBold_items(){    
+            for (let i=0; i<boldItems.length; i++){
+                arrayBold[i]=boldItems[i];
+            }
+        }
+
+        function highlight(){
+            for(let i=0; i<boldItems.length; i++){
+                arrayBold[i].style.color="blue";
+            }
+        }
+
+        function return_normal(){
+            for(let i=0; i<boldItems.length; i++){
+                arrayBold[i].style.color="black";
+            }
+        }
+
+    </script> 
+</html>
