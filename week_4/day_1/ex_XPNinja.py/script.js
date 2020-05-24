@@ -4,19 +4,36 @@ function noUnique(list){
 	let newlist=[];
 	let hold=0;
 	let duplicate=false;
+	let duplicates=[];
+	z=0;
 
-	for(x=0; x<list.length; x++){
+
+	for(let x=0; x<list.length; x++){
 		hold=list[x];
 		duplicate=false;
 		for(i=0; i<list.length; i++){
 			if (hold===list[i] && x != i){
-				duplicate=true;
+				
+				
+				for(let h=0; h<duplicates.length; h++){
+					
+					if(hold==duplicates[h]&&h>1){
+						
+						duplicate=true;
+						break;
+					}
+			
+				}
+				duplicates.push(hold);
+				z++;
 			}
+		
 		}
 		if (!duplicate){
 			newlist.push(list[x]);
 		}
 	}
+
 
 	return newlist;
 }

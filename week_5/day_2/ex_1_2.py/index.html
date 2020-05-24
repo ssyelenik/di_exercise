@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+  color:red;
+}
+</style>
+<body>
+<p><button onclick="myMove()">Click Me</button></p>
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+
+
+
+</body>
+<script>
+
+    /*#1*/
+
+    let box=document.getElementById("animate");
+
+    let place=0;
+    let intervalId="";
+
+    function myMove(){
+        
+        intervalId=setInterval(moveBox, 5);
+
+
+        
+    }
+
+    function moveBox(){
+        place++;
+        box.style.marginLeft=place+"px";
+        if(box.style.marginLeft=="350px"){
+            clearInterval(intervalId);      
+        }
+    }
+
+
+
+
+</script>
+
+</html>

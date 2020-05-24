@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+    <h1>Beautiful Stars</h1>
+    <div class="print">
+        
+    </div>
+
+
+</body>
+
+<script>
+    let printStars="";
+
+        for(x=0; x<5; x++){
+            printStars=printStars+"* ";
+            let para=document.createElement("p");
+            let text=document.createTextNode(printStars);
+            para.appendChild(text);
+            document.getElementsByTagName("div")[0].appendChild(para);
+        }
+
+    let spaces=0;
+    let stars=1;
+    let printStars2="";
+        while(stars<10){
+
+            spaces=(9-stars)/2;
+ 
+            console.log(spaces);
+            for(let z=0; z<spaces; z++){
+                printStars2=printStars2+"\xa0" + "\xa0";
+            }
+            for(let y=0; y<stars; y++){
+                printStars2=printStars2+"* ";
+            }
+
+
+            let para=document.createElement("p");
+            let text=document.createTextNode(printStars2);
+            para.appendChild(text);
+            document.getElementsByTagName("div")[0].appendChild(para);
+  
+            stars=stars+2;
+            printStars2="";
+        }
+    
+
+</script>
+</html>

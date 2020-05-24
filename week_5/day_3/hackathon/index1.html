@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Personality Test</title>
+	<link rel="stylesheet" href="style1.css">
+<!-- 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+<!-- 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<!-- 	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script> -->
+<!-- 	<script src="js/bootstrap.min.js"></script> -->
+	<meta name="viewport" content="width-devce-width, initial-scale-1, shrink-to-fit-no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!--   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="jumbotron jumbotron-fluid foreground-opacity text-center jumbotron-background"  >
+	  <div class="container">
+	    <h1 class="display-4" style="color:white;">Personality Test</h1>
+	    <h2 class="lead">Hemispheric brain dominance: Are you left or right brained?</h2>
+	    <h2 class="text">Left-handed people tend to be more logical and analytical; right-brained people tend to be more emotional and artistic. Take this personality test to find out which is your dominant brain!</h2>
+	    <h2 class="lead2">TAKE THE TEST TO FIND OUT!</h2>
+
+	    <div class="personal_info">
+	    	<label style="margin-left:-90px;"class="personal" >Enter Your Name:</label>
+		    <input class="personal" name= "name" id="name" type="text" placeholder="Name"><br> 
+		    <label class = "personal"> Enter Your E-mail Address:</label>
+		    <input class="personal" name= "email" id="email" type="text" placeholder="Email"> <br>
+		    <button class="personalB" style="margin-left:-245px;" name="submitEmail" type="button" id="submitEmail">Submit Email and Start Test</button>
+
+		 </div>
+	  </div>
+	</div>
+
+
+<div class="questionsGroup">
+	<h1 class="heading">Take the test!</h1>
+	<div class="question" style="margin-top:70px;">
+		<h2>1) I do not need others' praise</h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" value="50" class="slider" id="myRange1">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>2) I would prefer a class in mathematics to a class in pottery. </h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" value="50" class="slider" id="myRange2">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>3) I never show up late.</h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange3">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>4) I don't bother to the read instructions before I start putting something together. </h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange4">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>5) I could not live in a mess. </h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange5">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>6) I am totally random. </h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange6">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>7) I like working with words. </h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange7">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>8) I behave in a businesslike manner:</h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange8">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>9) I come up with new ideas. </h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange9">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Never</span><span class="item2">5 = Always</span></div>
+	</div>
+	<div class="question">
+		<h2>10) I am not easily disturbed by events. </h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange10">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>11) I rarely cry during sad movies. </h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange11">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>12) I plan my life logically. </h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange12">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>13) I need a creative outlet. </h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange13">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<div class="question">
+		<h2>14) I make decisions based on facts, not feelings.</h2>
+		<div class="slidecontainer">
+		  <input type="range" min="1" max="100" class="slider" id="myRange14">
+		</div>
+		<div class="smallcontainer"><span class="item1">1 = Not at all true</span><span class="item2">5 = Very true</span></div>
+	</div>
+	<form>
+		<div class="question">
+			<h2>15) I make a mess of things. </h2>
+			<div >
+				<input class="radio radio-inline" type="radio" id="Never" name="Q15" value="1">
+				<label class="radiolabel">Never</label>
+				<input class="radio radio-inline" type="radio" id="Rarely" name="Q15" value="2">
+				<label class="radiolabel">Rarely</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q15" value="3" checked=true>
+				<label class="radiolabel">Sometimes</label>
+				<input class="radio radio-inline" type="radio" id="Usually" name="Q15" value="4">
+				<label class="radiolabel">Usually</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q15" value="5">
+				<label class="radiolabel">Always</label>
+			</div>
+		</div>
+		<div class="question">
+			<h2>16) I get stressed out easily. </h2>
+			<div >
+				<input class="radio radio-inline" type="radio" id="Never" name="Q16" value="1">
+				<label class="radiolabel">Never</label>
+				<input class="radio radio-inline" type="radio" id="Rarely" name="Q16" value="2">
+				<label class="radiolabel">Rarely</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q16" value="3" checked=true>
+				<label class="radiolabel">Sometimes</label>
+				<input class="radio radio-inline" type="radio" id="Usually" name="Q16" value="4">
+				<label class="radiolabel">Usually</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q16" value="5">
+				<label class="radiolabel">Always</label>
+			</div>
+		</div>
+		<div class="question">
+			<h2>17) I am romantic. </h2>
+			<div >
+				<input class="radio radio-inline" type="radio" id="Never" name="Q17" value="1">
+				<label class="radiolabel">Never</label>
+				<input class="radio radio-inline" type="radio" id="Rarely" name="Q17" value="2">
+				<label class="radiolabel">Rarely</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q17" value="3" checked=true>
+				<label class="radiolabel">Sometimes</label>
+				<input class="radio radio-inline" type="radio" id="Usually" name="Q17" value="4">
+				<label class="radiolabel">Usually</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q17" value="5">
+				<label class="radiolabel">Always</label>
+			</div>
+		</div>
+		<div class="question">
+			<h2>18) I prize logic above all else. </h2>
+			<div >
+				<input class="radio radio-inline" type="radio" id="Never" name="Q18" value="1">
+				<label class="radiolabel">Never</label>
+				<input class="radio radio-inline" type="radio" id="Rarely" name="Q18" value="2">
+				<label class="radiolabel">Rarely</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q18" value="3" checked=true>
+				<label class="radiolabel">Sometimes</label>
+				<input class="radio radio-inline" type="radio" id="Usually" name="Q18" value="4">
+				<label class="radiolabel">Usually</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q18" value="5">
+				<label class="radiolabel">Always</label>
+			</div>
+		</div>
+		<div class="question">
+			<h2>19) I often forget to put things back in their proper place. </h2>
+			<div >
+				<input class="radio radio-inline" type="radio" id="Never" name="Q19" value="1">
+				<label class="radiolabel">Never</label>
+				<input class="radio radio-inline" type="radio" id="Rarely" name="Q19" value="2">
+				<label class="radiolabel">Rarely</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q19" value="3" checked=true>
+				<label class="radiolabel">Sometimes</label>
+				<input class="radio radio-inline" type="radio" id="Usually" name="Q19" value="4">
+				<label class="radiolabel">Usually</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q19" value="5">
+				<label class="radiolabel">Always</label>
+			</div>
+		</div>
+		<div class="question">
+			<h2>20) I am calm even in tense situations. </h2>
+			<div >
+				<input class="radio-inline radio" type="radio" id="Never" name="Q20" value="1">
+				<label class="radiolabel">Never</label>
+				<input class="radio radio-inline" type="radio" id="Rarely" name="Q20" value="2">
+				<label class="radiolabel">Rarely</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q20" value="3" checked=true>
+				<label class="radiolabel">Sometimes</label>
+				<input class="radio radio-inline" type="radio" id="Usually" name="Q20" value="4">
+				<label class="radiolabel">Usually</label>
+				<input class="radio radio-inline" type="radio" id="Sometimes" name="Q20" value="5">
+				<label class="radiolabel">Always</label>
+			</div>
+		</div>
+		<div class="buttonContainer">
+			<button type="submit" style="color:darkblue; font-size:40px; height:80px; width:250px; background-image:url(dead_sea.jpg);" class="btn-lg btn-primary jumbotron-button"><span class="glyphicon glyphicon-thumbs-up"></span>&nbspDone!</button>
+		</div>
+	</form>
+	</div>
+
+</div>
+<script src="main.js"></script>
+</body>
+</html>

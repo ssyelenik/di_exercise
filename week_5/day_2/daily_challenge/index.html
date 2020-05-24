@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+
+    <div class="onlyLetters">
+        <h1>Only letters are accepted:</h1>
+        <input class="inputLetters" type="text" placeholder="abcd">
+    </div>
+</div>
+
+</body>
+
+<script>
+
+    let inputElement=document.getElementsByTagName("input")[0];
+    inputElement.addEventListener("keypress", letterCheck);
+
+    function letterCheck(e){
+        let temp=inputElement.value;
+        var check = /^[A-Za-z]+$/;
+        if(!temp.match(check)){
+            temp=temp.substr(0,temp.length-1);
+        }
+        inputElement.value=temp;
+
+    }
+</script>
+</html>
