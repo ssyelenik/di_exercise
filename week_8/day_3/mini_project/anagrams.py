@@ -1,4 +1,4 @@
-exec(open(r"C:/BootCamp/di_exercise/week_8/day_3/mini_project/anagram_checker.py").read())
+exec(open(r"C:/BootCampComplete/di_exercise/week_8/day_3/mini_project/anagram_checker.py").read())
 while True:
     while True:
         print("")
