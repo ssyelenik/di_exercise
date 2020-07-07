@@ -1,0 +1,50 @@
+{% extends "/home.bin/base.html" %}
+
+{% block content %}
+<div class="container">
+<h1>Add a Product</h1>
+<form method="POST" action="{{url_for('view_new_product')}}">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="product_id">Product ID</label>
+      <input type="text" class="form-control" name="product_id">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="name">Name</label>
+      <input type="name" class="form-control" name="name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" name="description">
+  </div>
+  <div class="form-group">
+    <label for="ProductPicUrl">Picture</label>
+    <input type="text" class="form-control" name="ProductPicUrl">
+  </div>
+    <div class="form-group col-md-4">
+      <label for="category">Category</label>
+      <select name="category" class="form-control">
+        <option selected>Computer</option>
+        <option>Laptop</option>
+        <option>Phone</option>
+        <option>Appliance</option>
+        <option>Other</option>
+      </select>
+    </div>
+  </div>
+  </div>
+    <div class="form-group col-md-4">
+      <label for="status">Status</label>
+      <select name="status" class="form-control">
+        <option selected>Available</option>
+        <option>Unavailable</option>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+</div>
+{% endblock %}

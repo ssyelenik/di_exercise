@@ -1,0 +1,23 @@
+{% extends "/home.bin/base.html" %}
+
+{% block content %}
+<div class="container" style="display:flex;flex-wrap:wrap;justify-content: center;">
+	
+{% for i in range(num) %}
+
+	<div class="card" style="width: 18rem; margin:25px;">
+		<img class="product_pic" style="width:100%; height:30%;" src="{{ url_for('static', filename=search_products[i]['ProductPicUrl']) }}" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title"><strong>{{search_products[i]["ProductId"]}}&nbsp</strong>{{search_products[i]["Category"]}},&nbsp{{search_products[i]["Name"]}}</h5>
+				<p class="card-text">{{search_products[i]["Description"]}}</p>
+				<form action="" method="POST" name="selections">
+					<button class="btn btn-danger" type="submit" id="view" name="view_product" value="{{ i }}"><span class="glyphicon glyphicon-trash"></span> View This Item</button> <br><br>
+					<button class="btn btn-danger" type="submit" id="buy" name="buy_product" value="{{ i }}"><span class="glyphicon glyphicon-trash"></span> Add To Cart</button> 
+				</form>
+			</div>
+	</div>
+
+
+{% endfor %}
+</div>
+{% endblock %}

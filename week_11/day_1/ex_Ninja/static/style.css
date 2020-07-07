@@ -1,0 +1,46 @@
+.jumbotron{
+border:2px gray dotted;
+background-image: url("/static/background.jpg");
+}
+.name{
+font-weight:500;
+color:white;
+}
+a{
+	color:white;
+	text-decoration: none
+}
+.pic {
+margin-top:-100;
+width:235px;
+height:200px;
+float:right;
+border:3px gray ridge;
+border-radius: 5%
+
+}
+
+
+.details{
+font-style:italic;
+color:white;
+}
+.details_num{
+color:white;
+}
+.bod{
+background-color:silver;
+margin-top:-32px;
+}
+.first_item{
+padding-top:32px;
+}
+.pic1{
+	margin-left:20px!important;
+	height:50px!important;
+	width:75px!important;
+}
+
+
+
+
