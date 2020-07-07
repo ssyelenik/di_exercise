@@ -1,7 +1,7 @@
 {% extends "/home.bin/base.html" %}
 
 {% block content %}
-		    <form action="" method="POST" class="form-inline my-2 my-lg-0">
+		    <form action="{{url_for('view_search_products')}}" method="POST" class="form-inline my-2 my-lg-0">
 		      <input style="margin-left:100px;" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search for Item" name="search_item">
 		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		    </form>
