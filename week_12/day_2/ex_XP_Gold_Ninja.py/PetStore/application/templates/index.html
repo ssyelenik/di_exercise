@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+
+
+{% block content %}
+  <div class="container">
+      <h1>Welcome to Our Pet Shop</h1>
+  </div>
+  <div class="container" style="display:flex;flex-wrap:wrap;">
+
+      <div class="card" style="width: 20rem;margin:30px;">
+          <div style="height:320px;">
+              <img src="https://i.pinimg.com/236x/e5/8c/e0/e58ce0f63b843ff6182b03e096dcab39--baby-animals-animal-babies.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Our Pets</h5>
+            <a href="{{url_for('all_pets')}}" class="btn btn-primary">View</a>
+          </div>
+        </div>
+
+      <div class="card" style="width: 20rem;margin:30px;">
+          <div style="height:320px;">
+              <img src="https://i.pinimg.com/236x/98/77/b2/9877b25b806b400ba3e9fe6772f1980a--shopping-carts-funny-animals.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Your Cart</h5>
+            <a href="{{url_for('cart')}}" class="btn btn-primary">View</a>
+          </div>
+      </div>
+
+  </div>
+{% endblock content %}

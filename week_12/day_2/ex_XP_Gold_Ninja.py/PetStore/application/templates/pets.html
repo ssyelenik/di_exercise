@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+  <div class="container">
+      <h1>Our Pets:</h1>
+  </div>
+   <div class="container">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+     {% for message in messages %}
+        {{ message }}
+     {% endfor %}
+  {% endif %}
+{% endwith %}
+   </div>
+
+  <div class="container" style="display:flex;flex-wrap:wrap;">
+{% for pet in pet_list %}
+      <div class="card" style="width:18rem;height:30rem;margin:10px;">
+          <div style="height:20rem;">
+              <img src="{{pet['image']}}" class="card-img-top" alt="...">
+          </div>
+
+          <div class="card-body">
+
+            <h5 class="card-title" >{{pet['name']}}</h5>
+            <h5 class="card-title" style="margin-left:175px;">${{pet['price']}}</h5>
+              <form action="{{url_for('one_pet')}}" method="POST" name="buy_button">
+				<button class="btn btn-primary" type="submit" id="view" name="view" value="{{ pet['id'] }}"><span class="glyphicon glyphicon-trash"></span>View Details</button> <br><br>
+			</form>
+
+          </div>
+      </div>
+{% endfor %}
+   </div>
+
+   <div class="container">
+      <form action="{{url_for('all_pets')}}" method="POST" class="form-inline my-2 my-lg-0">
+         <div class="input-group mb-3">
+             <div class="input-group-prepend">
+                 <label class="input-group-text" for="inputGroupSelect01">Choose a Filter Country:</label>
+             </div>
+             <select class="custom-select" name="filter_country" id="inputGroupSelect01" >
+                 <option value="10">Choose...</option>
+                 <option value="0" name="Israel">Israel</option>
+                 <option value="1" name="USA">USA</option>
+                 <option value="2" name="France">France</option>
+                 <option value="3" name="England">England</option>
+                 <option value="4" name="Germany">Germany</option>
+                 <option value="5" name="Mexico">Mexico</option>
+                 <option value="6" name="Russia">Russia</option>
+                 <option value="7" name="Hungary">Hungary</option>
+                 <option value="8" name="Poland">Poland</option>
+                 <option value="9" name="Brazil">Brazil</option>
+                 <option value="10" name="None">No Filter</option>
+              </select>
+             <button type="submit" class="btn btn-primary">Apply Filter</button>
+          </div>
+      </form>
+   </div>
+
+{% endblock content %}

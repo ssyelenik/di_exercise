@@ -1,0 +1,45 @@
+{% extends "/home.bin/base.html" %}
+
+{% block style %}
+<style>
+
+
+        h5{background-color:teal;color:white}
+
+    </style>
+{% endblock style %}
+
+{% block title %}
+    <h1 class="display-4">Template Style #2</h1>
+    <p class="lead">See your rendered CV below.</p>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>{{all_info["first_name"]}} {{all_info["last_name"]}}</h1><br>
+<h3>Address: {{all_info["city"]}}   {{all_info["state"]}}</h3>
+<h3>Contact: {{all_info["email"]}}   {{all_info["phone"]}}</h3><br><br>
+<h5>Employment:</h5>
+    <ul>
+        <li>
+            {{all_info["employer1"]}}
+        </li>
+        <li>
+            {{all_info["employer2"]}}
+        </li>
+    </ul><br>
+<h5>Education:</h5>
+     <ul>
+        <li>
+            {{all_info["education"]}}
+        </li>
+
+    </ul><br>
+<h5>Special Skills:</h5>
+    <ul>
+        <li>
+            {{all_info["skills"]}}
+        </li>
+    </ul>
+</div>
+{% endblock %}
