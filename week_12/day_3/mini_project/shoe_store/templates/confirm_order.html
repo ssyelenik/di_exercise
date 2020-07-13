@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="formwrapper container">
+  <h2 class="title">Confirm Order</h2>
+  <form method="POST" action="">
+      {{form.csrf_token}}
+      {{form.first_name}}
+      {{form.last_name}}
+      <!--<div class="form-field">{{ form.first_name.label }} {{ form.first_name(size=20) }}</div>-->
+      <!--<div class="form-field">{{ form.last_name.label }} {{ form.last_name(size=20) }}</div>-->
+
+     <button class="btn btn-primary" type="submit" name="confirm" value="confirm"><span class="glyphicon glyphicon-trash"></span>Confirm</button><br><br>
+      <button class="btn btn-primary" type="submit" name="cancel_order" value="cancel_order"><span class="glyphicon glyphicon-trash"></span>Cancel</button> <br><br>
+   </form>
+</div>
+
+{% endblock content %}

@@ -15,6 +15,7 @@ class MyForm(FlaskForm):
 
     first_name = StringField('first_name', validators=[DataRequired()])
     last_name = StringField('last_name', validators=[DataRequired()])
+    favorite_color = StringField('favorite_color', validators=[DataRequired()])
 
 
 
@@ -27,18 +28,12 @@ class MyForm(FlaskForm):
         return user_list
 
     def locate_user(self,name):
-        print("from locate user",name)
         user_list=self.get_all_users()
         if len(user_list)>0:
             for i in range(len(user_list)):
-                print(name[0].lower(),user_list[i]["first_name"].lower())
-                print(name[1].lower(),user_list[i]["last_name"].lower())
                 if name[0].lower()==user_list[i]["first_name"].lower() and name[1].lower()==user_list[i]["last_name"].lower():
-                     print("got to mach--no update to json file")
-                     return True
-
-
-        return False
+                     return user_list[i]
+        return "new_user"
 
 
     def add_user(self,name):
@@ -47,21 +42,22 @@ class MyForm(FlaskForm):
         user_list=self.get_all_users()
         id_num=0
         while True:
-            print("checking ids")
             id_found="yes"
             for user in user_list:
-                print(user['id'],id_num)
-
                 if user['id']==id_num:
-                    print("same")
                     id_num+=1
                     id_found="no"
                     break
             if id_found=="yes":
                 break
-
-        new_entry={"id":id_num,"first_name":name[0],"last_name":name[1]}
+        new_entry={"id":id_num,"first_name":name[0],"last_name":name[1],"favorite_color":name[2]}
         user_list.append(new_entry)
         with open(file_to_open,"w") as users:
-            json.dump(user_list,users)
+            json.dump(user_list,users,sort_keys=True,indent=4)
+
+# class admin_form(FlaskForm):
+#     user_id=StringField('User Id',render_kw={'readonly': True})
+#     first_name = StringField('First Name:', validators=[DataRequired()])
+#     last_name = StringField('Last Name', validators=[DataRequired()])
+#     favorite_color = StringField('Favorite Color', validators=[DataRequired()])
 

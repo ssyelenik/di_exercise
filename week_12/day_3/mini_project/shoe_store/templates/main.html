@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container" style="display:flex;flex-wrap:wrap;">
+{% for shoe in shoe_list %}
+
+      <div class="card" style="width:18rem;height:30rem;margin:10px;">
+          <div style="height:10rem;">
+              <img src="{{shoe['image']}}" class="card-img-top" alt="...">
+          </div>
+
+          <div class="card-body" style="height:200px;">
+            <h5 class="card-title" >{{shoe['brand']}}</h5>
+            <h5 class="card-title" >{{shoe['name']}}</h5>
+            <h5 class="card-title" style="margin-left:175px;">${{shoe['price']}}</h5>
+              <form action="" method="POST" name="buy_button">
+				 <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-6 pt-0">Amount:</legend>
+
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="amount" id="gridRadios1" value="1" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            One Pair
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="amount" id="gridRadios2" value="2">
+                          <label class="form-check-label" for="gridRadios2">
+                            Two Pairs
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="amount" id="gridRadios3" value="3">
+                          <label class="form-check-label" for="gridRadios3">
+                            Three Pairs
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="amount" id="gridRadios3" value="4">
+                          <label class="form-check-label" for="gridRadios3">
+                            Four Pairs
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <button class="btn btn-primary" style="text-align:center;" type="submit" name="shoe_id" value="{{ shoe['id'] }}"><span class="glyphicon glyphicon-trash"></span>Add To Order</button> <br><br>
+              </form>
+
+          </div>
+      </div>
+
+{% endfor %}
+      </div>
+<div class="container">
+    <form action="{{url_for('order')}}" method="POST" name="buy_button">
+        <button class="btn btn-primary" style="text-align:center;" type="submit" name="view_order" value=""><span class="glyphicon glyphicon-trash"></span>View Order</button> <br><br>
+    </form>
+</div>
+
+{% endblock content %}

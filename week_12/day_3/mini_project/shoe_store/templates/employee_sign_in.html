@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="formwrapper container">
+  <h2 class="title">Confirm Order</h2>
+  <form method="POST" action="">
+      <div class="form-field">{{ form.password.label }} {{ form.password(size=20) }}</div>
+
+     <button class="btn btn-primary" type="submit" name="sign_in" value="sign_in"><span class="glyphicon glyphicon-trash"></span>Sign In</button><br><br>
+   </form>
+</div>
+
+{% endblock content %}

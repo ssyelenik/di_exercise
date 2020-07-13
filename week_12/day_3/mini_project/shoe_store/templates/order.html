@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container" style="display:flex;flex-wrap:wrap;">
+{% for shoe in shoe_details %}
+      <div class="card" style="width:18rem;height:30rem;margin:10px;">
+          <div style="height:10rem;">
+              <img src="{{shoe['image']}}" class="card-img-top" alt="...">
+          </div>
+
+          <div class="card-body" style="height:200px;">
+            <h5 class="card-title" >{{shoe['brand']}}</h5>
+            <h5 class="card-title" >{{shoe['name']}}</h5><br>
+            <h5 class="card-title" style="margin-left:175px;">${{shoe['price']}}</h5><br>
+            <h5 class="card-title" >Amount ordered: {{shoe['amount']}}</h5>
+
+
+          </div>
+      </div>
+{% endfor %}
+
+   </div>
+        <hr>
+   <div class="container">
+       <h3>Total Price: {{total}}</h3>
+   </div>
+        <hr>
+   <div class="container">
+       <form action="" method="POST">
+          <button class="btn btn-primary"  type="submit" name="confirm" value="confirm"><span class="glyphicon glyphicon-trash"></span>Confirm</button> <br><br>
+          <button class="btn btn-primary" type="submit" name="cancel_order" value="cancel_order"><span class="glyphicon glyphicon-trash"></span>Cancel</button> <br><br>
+        </form>
+   </div>
+
+{% endblock content %}

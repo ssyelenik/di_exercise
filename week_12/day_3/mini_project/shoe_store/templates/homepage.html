@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div class="container">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+     {% for message in messages %}
+        {{ message }}<br><br>
+     {% endfor %}
+  {% endif %}
+{% endwith %}
+        </div>
+   <div class="container">
+      <form action="{{url_for('main')}}" method="POST" class="form-inline my-2 my-lg-0">
+         <div class="input-group mb-3">
+             <div class="input-group-prepend">
+                 <label class="input-group-text" for="inputGroupSelect01">Choose a Store Location by City:</label>
+             </div>
+             <select class="custom-select" name="filter_city" id="inputGroupSelect01" >
+                 <option value="">Choose...</option>
+                 <option value="New York" name="New York">New York</option>
+                 <option value="Paris" name="Paris">Paris</option>
+                 <option value="Tel Aviv" name="Tel Aviv">Tel Aviv</option>
+              </select>
+             <button type="submit" class="btn btn-primary">View Store</button>
+          </div>
+      </form>
+   </div>
+
+{% endblock content %}

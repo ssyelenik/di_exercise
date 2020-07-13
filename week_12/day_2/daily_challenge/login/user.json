@@ -1,1 +1,48 @@
-[]
+[
+    {
+        "first_name": "Yosef",
+        "id": 0,
+        "last_name": "Yisrael",
+        "status": "admin",
+        "favorite_color": "Yellow"
+    },
+    {
+        "first_name": "Chaim",
+        "id": 1,
+        "last_name": "Yelenik",
+        "status": "admin",
+        "favorite_color": "Magenta"
+    },
+    {
+        "first_name": "Brian",
+        "id": 2,
+        "last_name": "London",
+        "status": "client",
+        "favorite_color": "Brown"
+    },
+    {
+        "first_name": "Albert",
+        "id": 3,
+        "last_name": "Einstein",
+        "status": "client",
+        "favorite_color": "Black"
+    },
+    {
+        "favorite_color": "Blue",
+        "first_name": "Maya",
+        "id": 4,
+        "last_name": "Izakov"
+    },
+    {
+        "favorite_color": "Silver",
+        "first_name": "Sharon",
+        "id": 5,
+        "last_name": "Yelenik"
+    },
+    {
+        "favorite_color": "Blue",
+        "first_name": "Yosef",
+        "id": 6,
+        "last_name": "Yelenik"
+    }
+]
