@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	    <meta charset="UTF-8">
+	    <title>Sharon's Shop</title>
+		<link rel="stylesheet" href="C:/BootCamp/di_exercise/week_11/day_3/mini_project/static/style.css">
+		<style>
+
+		</style>
+  	</head>
+    <body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+     {% for message in messages %}
+        {{ message }}<br>
+     {% endfor %}
+  {% endif %}
+{% endwith %}
+      <div class="container" style="display:flex;flex-wrap:wrap;">
+
+ <form action="{{url_for('index')}}" method="POST">
+     <div class="container">
+          <div class="form-group">
+            <label>ID:</label>
+            <input class="form-control" name="id" value={{matching_entry.id}} placeholder="{{matching_entry.id}}" readonly>
+
+          </div>
+          <div class="form-group">
+            <label>Name:</label>
+            <input class="form-control" name="name" value={{matching_entry.name}} placeholder="{{matching_entry.name}}" >
+          </div>
+
+            <div class="form-group">
+            <label>Phone number:</label>
+            <input  class="form-control" name="phone_num" value={{matching_entry.phone_num}} placeholder="{{matching_entry.phone_num}}" >
+          </div>
+
+          <div class="form-group">
+            <label>Email:</label>
+            <input  class="form-control" name="email" value={{matching_entry.email}} placeholder="{{matching_entry.email}}">
+          </div>
+
+         <div class="form-group">
+            <label>Address:</label>
+            <input  class="form-control" name="address" value={{matching_entry.address}} placeholder="{{matching_entry.address}}">
+          </div>
+
+          <button class="btn btn-primary" value="yes" style="text-align:center;" type="submit" name="submit_changes">Return to Index</button> <br><br>
+     </div>
+</form>
+      </div>
+    	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
