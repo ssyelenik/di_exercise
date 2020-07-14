@@ -73,6 +73,7 @@ def view_user():
                 users[i]['first_name']=updated_user['first_name']
                 users[i]['last_name']=updated_user['last_name']
                 users[i]['favorite_color']=updated_user['favorite_color']
+                users[i]['status']='client'
                 print(users[i])
                 break
         with open(file_to_open,"w") as f:
