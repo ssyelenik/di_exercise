@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	    <meta charset="UTF-8">
+	    <title>Sharon's Shop</title>
+		<link rel="stylesheet" href="C:/BootCamp/di_exercise/week_11/day_3/mini_project/static/style.css">
+		<style>
+
+		</style>
+  	</head>
+    <body>
+    <div class="container" style="margin-bottom:40px; margin-top:40px;border:2px dotted gray;">
+    <h5 style="float:left; margin-right:45px;"><a href="{{url_for('index')}}">Search</a></h5>
+    <h5 style="float:left; margin-right:45px;"><a href="{{url_for('search_by_nat')}}">Search by Nationality</a></h5>
+    <h5><a href="{{url_for('add_person')}}">Add a Phone Book Entry</a></h5>
+    </div>
+    <div class="containter" style="margin-left:300px">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+     {% for message in messages %}
+        {{ message }}<br>
+     {% endfor %}
+  {% endif %}
+{% endwith %}
+      </div>
+      <div class="container" style="display:flex;flex-wrap:wrap;">
+
+          {% block content %}
+
+          {% endblock content %}
+
+     </div>
+</form>
+      </div>
+    	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

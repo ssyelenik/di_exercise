@@ -64,10 +64,9 @@ def view_user():
         file_to_open=data_folder / "user.json"
         with open(file_to_open,"r") as f:
             users=json.load(f)
-        print(users)
+
         for i in range(len(users)):
-            print(updated_user['id'])
-            print(users[i]['id'])
+
             if int(users[i]['id'])==int(updated_user['id']):
                 print("match found")
                 users[i]['first_name']=updated_user['first_name']

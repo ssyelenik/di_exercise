@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+        {% block content %}
+        <div class="container">
+            <h1>Search a Nationality</h1>
+        </div>
+        <hr>
+        <form method="POST" action="{{url_for('display_nat')}}">
+
+            <div class="container">
+      <label>Nationality:</label>
+      <select class="form-control" name="nationality">
+        <option>American</option>
+        <option>French</option>
+        <option>Israeli</option>
+      </select>
+          </div>
+<br><br>
+          <button class="btn btn-primary"  type="submit" name="submit">Search Nationality</button> <br><br>
+
+</form>
+
+        {% endblock content %}
