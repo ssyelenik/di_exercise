@@ -8,6 +8,8 @@
             <form method="POST" class="form-inline my-2 my-lg-0" action="" style="margin-left:30px;">
                {{ form.csrf_token }}
                {{ form.todo_text.label }} <span style="margin-left:10px;margin-right:10px;">{{ form.todo_text }}</span>
+               {{ form.category.label }} <span style="margin-left:10px;margin-right:10px;">{{ form.category }}</span>
+               {{ form.image_url.label }} <span style="margin-left:10px;margin-right:10px;">{{ form.image_url }}</span>
                {{ form.submit }}
             </form>
         </div>
@@ -17,16 +19,19 @@
 
                 {% if record.is_todo_complete==None %}
 
-                    <li style="color:black;">
-                        {{record.todo_text}}
+                    <li style="color:black;margin-bottom:40px;font-size:25px;border:2px dotted gray;padding:25px;">
+                        <span><span style="margin-right:50px;">Category: <strong>{{record.cat.name}}</strong> </span><span>Todo Item: <strong>{{record.todo_text}}</strong></span></span>
+                        <img style="width:150px;border:1px solid black" src="{{record.im.url}}">
                     </li>
                 {% elif record.is_todo_complete==True %}
-                    <li style="color:red;">
-                        {{record.todo_text}}
+                    <li style="color:red;margin-bottom:40px;font-size:25px;border:2px dotted gray;padding:25px;">
+                        <span><span style="margin-right:50px;">Category: <strong>{{record.cat.name}}</strong> </span><span>Todo Item: <strong>{{record.todo_text}}</strong></span></span>
+                        <img style="width:150px;" src="{{record.im.url}}">
                     </li>
                 {% else %}
-                    <li style="color:black;">
-                        {{record.todo_text}}
+                    <li style="color:black;margin-bottom:40px;font-size:25px;border:2px dotted gray;padding:25px;">
+                        <span><span style="margin-right:50px;">Category: <strong>{{record.cat.name}}</strong> </span><span>Todo Item: <strong>{{record.todo_text}}</strong></span></span>
+                        <img style="width:150px;" src="{{record.im.url}}">
                     </li>
                 {% endif %}
             {% endfor %}

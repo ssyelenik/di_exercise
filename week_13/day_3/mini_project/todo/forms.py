@@ -4,6 +4,8 @@ import flask
 
 class Index(FlaskForm):
     todo_text=wtforms.StringField("Todo")
+    category=wtforms.SelectField("Category")
+    image_url=wtforms.StringField("Image URL")
     submit=wtforms.SubmitField("Save New Todo")
 
 

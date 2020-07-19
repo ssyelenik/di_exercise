@@ -8,12 +8,24 @@ from . import forms
 @app.route("/", methods=['GET','POST'])
 def index():
     form=forms.Index()
+    form.category.choices=[]
+    categories=models.Category.query.all()
+    for c in categories:
+        form.category.choices+=[c.name]
     todo_obj=todo_class.Todo()
     todo_list=todo_obj.get_todos()
+
     if flask.request.method=="POST":
         todo_text=form.todo_text.data
+        img_url=form.image_url.data
+        category=form.category.data
+        img=models.Image(url=img_url)
+        ct=models.Category.query.filter_by(name=category).first()
+        print(ct)
+        print(ct.name)
         todo_new=todo_class.Todo(todo_text)
-        todo_new.save_to_db()
+        todo_new.save_to_db(img,ct)
+
         return flask.redirect(flask.url_for('index'))
     return flask.render_template("index.html",form=form,todo_list=todo_list)
 
