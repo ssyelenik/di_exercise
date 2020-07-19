@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" >
+        <h1 style="margin-left:50px;">Mark an item from your Todo List as Complete:</h1>
+        <hr>
+
+        <div class="container" style="margin-top:40px;">
+            {% for record in todo_list %}
+            <form id="form_todo" method="POST" class="form-inline my-2 my-lg-0" action="{{url_for('confirm',todo_text=record.todo_text)}}">
+                    <div class="form-check">
+                        <div style="margin-left:50px;">
+                            <input class="form-check-input" type="checkbox" id="checkbox_todo" onchange="this.form.submit()">
+                            <input  style="width:400px;" name="todo_text" value = '{{record.todo_text}}' readonly>
+                        </div>
+                    </div>
+            </form>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+        {% endblock content %}
+

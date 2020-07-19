@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" >
+        <h1 style="margin-left:50px;">Here's your List:</h1>
+        <hr>
+        <div class="container">
+            <p>Add a new todo item:</p>
+            <form method="POST" class="form-inline my-2 my-lg-0" action="" style="margin-left:30px;">
+               {{ form.csrf_token }}
+               {{ form.todo_text.label }} <span style="margin-left:10px;margin-right:10px;">{{ form.todo_text }}</span>
+               {{ form.submit }}
+            </form>
+        </div>
+        <div class="container" style="margin-top:40px;">
+            <ul>
+            {% for record in todo_list %}
+
+                {% if record.is_todo_complete==None %}
+
+                    <li style="color:black;">
+                        {{record.todo_text}}
+                    </li>
+                {% elif record.is_todo_complete==True %}
+                    <li style="color:red;">
+                        {{record.todo_text}}
+                    </li>
+                {% else %}
+                    <li style="color:black;">
+                        {{record.todo_text}}
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+        {% endblock content %}
