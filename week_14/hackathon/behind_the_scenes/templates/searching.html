@@ -1,0 +1,54 @@
+{% extends 'base2.html'%}
+
+{% block content %}
+<div class="container">
+    <div style="border-radius:5%;border:2px double gray;background:beige;opacity:.7;padding:30px;margin:20px;">
+   <h1 style="text-align:center;">Search our Database</h1><br><br>
+    <h3>You can search in several different ways. You can view our entire database, you can view our database based on criteria of your choice, or you can let us choose a good candidate for you!</h3>
+    <br>
+    <h5>Go ahead and make your choice!</h5><br>
+    <form method="POST" class="form-inline my-2 my-lg-0" action="{{url_for('view_dates')}}">
+        <div class="form-check">
+            <div style="margin-left:50px;">
+                <input class="form-check-input" type="radio" name="search" value="view_all" onchange="this.form.submit()">
+                <label class="form-check-label">
+                    View entire database
+                </label>
+             </div>
+        </div>
+        <div class="form-check">
+            <div style="margin-left:50px;">
+                <input class="form-check-input" type="radio" name="search" value="view_auto" onchange="this.form.submit()">
+                <label class="form-check-label">
+                    Let us search the database for you
+                </label>
+            </div>
+        </div>
+        <div class="form-check">
+            <div style="margin-left:50px;">
+                <input class="form-check-input" type="radio" name="search" value="view_age" onchange="this.form.submit()">
+                <label class="form-check-label">
+                    Search based on age group
+                </label>
+            </div>
+        </div>
+        <div class="form-check">
+            <div style="margin-left:50px;">
+                <input class="form-check-input" type="radio" name="search" value="view_interests" onchange="this.form.submit()">
+                <label class="form-check-label">
+                    Search based on common interests and personality
+                </label>
+            </div>
+        </div>
+        <div class="form-check">
+            <div style="margin-left:50px;">
+                <input class="form-check-input" type="radio" name="search" value="view_profession" onchange="this.form.submit()">
+                <label class="form-check-label">
+                    Search based on common profession
+                </label>
+            </div>
+        </div>
+            </form>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "base2.html" %}
+
+{% block content %}
+        <div class="container">
+        <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src={{'person.image'}} alt="Card image cap">
+  <div class="card-body">
+    <h2 class="card-title">Behind the Scenes Name: {{person.alias}}</h2>
+    <h5 class="card_text">Here's some information about me:</h5>
+    <p class="card-text">Location: {{person.city}} {{person.state}}, {{person.country}}</p>
+      <p class="card-text">My hobby is {{person.hobbies}} {{person.state}}, {{person.country}}</p>
+      <p class="card-text">My profession is {{person.profession}} </p>
+      <p class="card-text">My personality is {{person.personality}} </p>
+      <p class="card-text">I am an {{person.in_extrovert}} </p>
+      <p class="card-text">Personal comment: {{person.personal_comment}} </p>
+
+  </div>
+</div>
+
+ <form action="" method="POST">
+  <div class="form-group">
+    <label>Enter your message:</label>
+    <input  name="msg" class="form-control" placeholder="Enter message">
+  </div>
+
+  <button type="submit" value="{{person.alias}}" name="recipient" class="btn btn-primary">Submit</button>
+</form>
+  </div>
+{% endblock content %}

@@ -1,0 +1,82 @@
+{% extends 'base.html'%}
+{% block nav %}
+<div style="height:1000px;background-image:url('https://labourenergy.org/wp-content/uploads/2020/02/wedding-backgrounds-images.jpg')">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:transparent!important;border-color:transparent;background-image:none;box-shadow:none;color:white;justify-content:flex-start;margin-bottom:0;">
+  <!--<button style="font-size:30px;background-color:transparent!important;border-color:transparent;background-image:none;box-shadow:none;color:white;justify-content:flex-start;margin-bottom:0;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Dater Login</button>-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+       <li class="nav-item">
+        <a style="margin-left:50px;text-decorate:none;color:white;font-size:25px;" class="nav-link" href="#"><strong>{{alias}}</strong> is logged in</a>
+      </li>
+      <li class="nav-item">
+        <a style="margin-left:50px;text-decorate:none;color:white;font-size:25px;" class="nav-link" href="{{url_for('logout')}}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+        {% endblock nav %}
+        {% block content %}
+   <div class="jumbotron jumbotron-fluid" style="background:none;height:350px;color:beige;">
+      <div class="container" >
+        <h1 class="display-4" style="font-family: 'Pinyon Script', cursive;font-size:8rem;">Behind the Scenes</h1>
+        <p class="lead">Let us help you find your match.</p>
+      </div>
+  </div>
+
+
+    <!--<div class="container" style="background-color:yellow;">-->
+    <!--{% with messages = get_flashed_messages() %}-->
+      <!--{% if messages %}-->
+         <!--{% for message in messages %}-->
+            <!--{{ message }}-->
+         <!--{% endfor %}-->
+      <!--{% endif %}-->
+    <!--{% endwith %}-->
+    <!--</div>-->
+
+
+
+
+    <div style="margin-left:80px;margin-right:50px;margin-bottom:50px;">
+
+    	<div class="row columning" >
+
+			<div class="col-md-3" style="border-radius:5%;border:2px double gray;background:beige;opacity:.7;padding:30px;margin:20px;">
+				<h2 style="font-family: 'Pinyon Script', cursive;" class="column-heading"><strong>View your Messages</strong></h2>
+				<div><img class="little_icons" src="https://img.icons8.com/cotton/64/000000/wine-glass.png"/></div>
+				<p>Your future date may have already picked you out! Click here to see if someone has sent you a message. Also, you can view your history using this link.</p>
+				<form method="GET" action="{{url_for('messaging')}}">
+                <button type="submit" class="btn btn-info">
+				   <span class="glyphicon glyphicon-th-list btn-l"></span> View Messages
+				</button>
+                </form>
+			</div>
+
+
+			<div class="col-md-3" style="border-radius:5%;border:2px double gray;background:beige;opacity:.7;padding:30px;margin:20px;">
+				<h2 style="font-family: 'Pinyon Script', cursive;" class="column-heading"><strong>Search and send a message</strong></h2>
+				 <div class="grid-item"><img class="little_icons" src="https://img.icons8.com/cotton/64/000000/create-new--v4.png"></div>
+				 <p>You can search the database and find a friend to send a message to. Hopefully, this will be someone you're interested in dating! You can look through our database yourself, or you can allow us to search for you and find you an ideal match.</p>
+				  <div>
+                <form method="POST" action="{{url_for('searching')}}">
+  				<button type="submit" class="btn btn-info">
+				   <span class="glyphicon glyphicon-th-list btn-l"></span> Search Database
+				</button>
+                </form>
+  				</div>
+
+			</div>
+			<div class="col-md-3" style="border-radius:5%;border:2px double gray;background:beige;opacity:.7;padding:30px;margin:20px;">
+                <h2 style="font-family: 'Pinyon Script', cursive;" class="column-heading"><strong>Find a place for a date</strong></h2> 
+				<div class="grid-item"><img class="little_icons" src="https://img.icons8.com/cotton/64/000000/triumphal-arch--v2.png"></div>
+				<p>Ready to go out on a date? Click here to find an ideal place in your destination city.</p>
+                <form method="POST" action="{{url_for('planning')}}">
+				<button type="submit" class="btn btn-info">
+				   <span class="glyphicon glyphicon-film btn-l"></span> Plan a Date
+				</button>
+                </form>
+			</div>
+
+         </div>
+        </div>
+        {% endblock content %}

@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block nav %}
+<!-- Image and text -->
+
+<div style="background-image:url('https://labourenergy.org/wp-content/uploads/2020/02/wedding-backgrounds-images.jpg')">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:transparent!important;border-color:transparent;background-image:none;box-shadow:none;color:white;justify-content:flex-start;margin-bottom:0;">
+  <!--<a class="navbar-brand" style="text-decorate:none;color:white;font-size:30px;" href="#">Dater Login</a>-->
+  <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--<span class="navbar-toggler-icon"></span>-->
+  <!--</button>-->
+  <button style="font-size:30px;background-color:transparent!important;border-color:transparent;background-image:none;box-shadow:none;color:white;justify-content:flex-start;margin-bottom:0;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Dater Login</button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a style="margin-left:50px;text-decorate:none;color:white;font-size:25px;" class="nav-link" href="#">Logout</a>
+      </li>
+      <!--<li class="nav-item dropdown">-->
+        <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+          <!--Dropdown-->
+        <!--</a>-->
+        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+          <!--<a class="dropdown-item" href="#">Action</a>-->
+          <!--<a class="dropdown-item" href="#">Another action</a>-->
+          <!--<div class="dropdown-divider"></div>-->
+          <!--<a class="dropdown-item" href="#">Something else here</a>-->
+        <!--</div>-->
+      <!--</li>-->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link disabled" href="#">Disabled</a>-->
+      <!--</li>-->
+    </ul>
+    <!--<form class="form-inline my-2 my-lg-0">-->
+      <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    <!--</form>-->
+  </div>
+</nav>
+
+
+{% endblock nav %}
+
+{% block content %}
+     <div class="jumbotron jumbotron-fluid" style="background:none;height:700px;color:beige;">
+      <div class="container" >
+        <h1 class="display-4" style="font-family: 'Pinyon Script', cursive;font-size:8rem;">Behind the Scenes</h1>
+        <p class="lead">Let us help you find your match.</p>
+      </div>
+  </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Dater Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST">
+          <div class="form-group">
+            <label for="alias" class="col-form-label">Alias:</label>
+            <input type="text" class="form-control" id="alias" name="alias">
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-form-label">Password:</label>
+            <input type="text" class="form-control" id="password" name="password">
+          </div>
+
+      </div>
+        <div class="container">
+        <div class="container">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" value="man">
+          <label class="form-check-label">
+            I am a man seeking to date a woman
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" value="woman">
+          <label class="form-check-label">
+            I am a woman seeking to date a man
+          </label>
+        </div>
+        </div>
+            </div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+

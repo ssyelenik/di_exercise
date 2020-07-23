@@ -1,0 +1,68 @@
+{% extends 'base2.html'%}
+
+{% block content %}
+<div class="container"><h1 style="color:white;text-align:center;">Select a person to send a message:</h1></div>
+<div style="display:flex;flex-wrap:wrap;flex-direction:row;justify-content:center;">
+        {% for person in people_found %}
+
+	<!--<div class="col-md-3">-->
+        <div class="card" style="width: 25rem;border:2px solid gray;margin-right:10px;">
+          <img class="card-img-top" style="margin-top:10px;height:250px;width:250px;align-self:center;border:2px double gray" src="{{person.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h3 class="card-title">Behind the Scenes Name: {{person.alias}}</h3><hr>
+            <h5 class="card_text">Here's some information about me:</h5>
+            <p class="card-text">Location: {{person.city}} {{person.state}}, {{person.country}}</p>
+              <p class="card-text">My hobby is {{person.hobbies}} {{person.state}}, {{person.country}}</p>
+              <p class="card-text">My profession is {{person.profession}} </p>
+              <p class="card-text">My personality is {{person.personality}} </p>
+              <p class="card-text">I am {{person.in_extrovert}} </p>
+              <p class="card-text">Personal comment: {{person.personal_comment}} </p>
+           <form method="POST" action="{{url_for('send_msg')}}">
+            <button type="submit" value="{{person.alias}}" name="msg_recipient" class="btn btn-primary">Send a Message</button>
+           </form>
+          </div>
+        </div>
+     <!--</div>-->
+
+        {% endfor %}
+
+</div>
+<hr style="background-color:white;"><hr style="background-color:white;">
+<div class="container" style="display:flex;flex-wrap:wrap;justify-content:center;margin-top:80px;">
+            <div class="col-md-3" style="border-radius:5%;border:2px double gray;background:beige;opacity:.7;padding:30px;margin:20px;">
+                <h2 style="font-family: 'Pinyon Script', cursive;" class="column-heading"><strong>View your Messages</strong></h2>
+                <div><img class="little_icons" src="https://img.icons8.com/cotton/64/000000/wine-glass.png"/></div>
+                <p>Your future date may have already picked you out! Click here to see if someone has sent you a message. Also, you can view your history using this link.</p>
+                <form method="POST" action="{{url_for('messaging')}}">
+                    <button type="submit" class="btn btn-info">
+                        <span class="glyphicon glyphicon-th-list btn-l"></span> View Messages
+                    </button>
+                </form>
+            </div>
+			<div class="col-md-3" style="border-radius:5%;border:2px double gray;background:beige;opacity:.7;padding:30px;margin:20px;">
+				<h2 style="font-family: 'Pinyon Script', cursive;" class="column-heading"><strong>Search and send a message</strong></h2>
+				 <div class="grid-item"><img class="little_icons" src="https://img.icons8.com/cotton/64/000000/create-new--v4.png"></div>
+				 <p>You can search the database and find a friend to send a message to. Hopefully, this will be someone you're interested in dating! You can look through our database yourself, or you can allow us to search for you and find you an ideal match.</p>
+				  <div>
+                <form method="POST" action="{{url_for('searching')}}">
+  				<button type="submit" class="btn btn-info">
+				   <span class="glyphicon glyphicon-th-list btn-l"></span> Search Database
+				</button>
+                </form>
+  				</div>
+
+			</div>
+			<div class="col-md-3" style="border-radius:5%;border:2px double gray;background:beige;opacity:.7;padding:30px;margin:20px;">
+                <h2 style="font-family: 'Pinyon Script', cursive;" class="column-heading"><strong>Find a place for a date</strong></h2> 
+				<div class="grid-item"><img class="little_icons" src="https://img.icons8.com/cotton/64/000000/triumphal-arch--v2.png"></div>
+				<p>Ready to go out on a date? Click here to find an ideal place in your destination city.</p>
+                <form method="POST" action="{{url_for('planning')}}">
+				<button type="submit" class="btn btn-info">
+				   <span class="glyphicon glyphicon-film btn-l"></span> Plan a Date
+				</button>
+                </form>
+			</div>
+
+         </div>
+        </div>
+{% endblock content %}

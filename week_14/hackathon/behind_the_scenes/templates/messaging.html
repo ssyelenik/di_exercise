@@ -1,0 +1,23 @@
+{% extends 'base2.html'%}
+
+{% block content %}
+<div >
+<div class="container" style="background-color:white;opacity:.7;">
+    <h1>Here are your messages:</h1>
+    <ul>
+    {% for msg in all_messages %}
+    <li>
+        <h3>{{msg['sender']}}:</h3>
+        <h5>{{msg['message']}}</h5>
+    </li>
+        <form action="" method="POST">
+            <label style="font-size:30px;"><strong>Reply Message:</strong></label>
+            <input style="margin-bottom:30px;" class="form-control" name="msg_text" placeholder="Enter message">
+            <button type="submit" name="sender" value={{msg['sender']}} class="btn btn-primary">Reply</button>
+        </form>
+        <br><br>
+    {% endfor %}
+</div>
+        </div>
+
+{% endblock content %}
