@@ -106,7 +106,7 @@ def dater_view():
         global gender
         global alias
         msg=flask.request.form['msg']
-        recipient=flask.request.form['recipient']
+        recipient=flask.request.form['msg_recipient']
         save_msg(msg,recipient)
     return flask.render_template("dater_view.html",alias=alias)
 
@@ -278,11 +278,17 @@ def send_msg():
     global alias
     global msg_receiver
     name=flask.request.form['msg_recipient']
-    print(name)
     if gender=="man":
         msg_receiver=models.Woman.query.filter_by(alias=name).first()
     else:
         msg_receiver=models.Man.query.filter_by(alias=name).first()
+    # if flask.request.method=="POST":
+    #     new_msg=flask.request.form['msg']
+    #     recipient=flask.request.form['recipient']
+    #     print(recipient)
+    #     save_msg(new_msg,recipient)
+    #     flask.flash(f"{alias}, you sent a new message to {recipient}.")
+    #     return flask.redirect(flask.url_for('dater_view'))
     return flask.render_template("send_msg.html",person=msg_receiver)
 
 @app.route("/logout", methods=['GET','POST'])

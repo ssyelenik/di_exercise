@@ -1,9 +1,9 @@
 {% extends "base2.html" %}
 
 {% block content %}
-        <div class="container">
-        <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src={{'person.image'}} alt="Card image cap">
+        <div class="container" style="align-items:center;">
+        <div class="card" style="width: 25rem;align-self:center;">
+  <img class="card-img-top" src="{{person.image}}" alt="Card image cap">
   <div class="card-body">
     <h2 class="card-title">Behind the Scenes Name: {{person.alias}}</h2>
     <h5 class="card_text">Here's some information about me:</h5>
@@ -17,13 +17,13 @@
   </div>
 </div>
 
- <form action="" method="POST">
+ <form action="{{url_for('dater_view')}}" method="POST">
   <div class="form-group">
     <label>Enter your message:</label>
-    <input  name="msg" class="form-control" placeholder="Enter message">
+    <input  style="width:400px;" name="msg" class="form-control" placeholder="Enter message">
   </div>
 
-  <button type="submit" value="{{person.alias}}" name="recipient" class="btn btn-primary">Submit</button>
+  <button type="submit" value="{{person.alias}}" name="msg_recipient" class="btn btn-primary">Submit</button>
 </form>
   </div>
 {% endblock content %}
