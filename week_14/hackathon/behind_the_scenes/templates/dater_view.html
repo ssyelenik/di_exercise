@@ -9,6 +9,9 @@
         <a style="margin-left:50px;text-decorate:none;color:white;font-size:25px;" class="nav-link" href="#"><strong>{{alias}}</strong> is logged in</a>
       </li>
       <li class="nav-item">
+        <a style="margin-left:50px;text-decorate:none;color:white;font-size:25px;" class="nav-link" href="{{url_for('deactivate')}}">Deactivate Communication</a>
+      </li>
+      <li class="nav-item">
         <a style="margin-left:50px;text-decorate:none;color:white;font-size:25px;" class="nav-link" href="{{url_for('logout')}}">Logout</a>
       </li>
     </ul>
@@ -64,14 +67,16 @@
 				</button>
                 </form>
   				</div>
-
 			</div>
 			<div class="col-md-3" style="border-radius:5%;border:2px double gray;background:beige;opacity:.7;padding:30px;margin:20px;">
                 <h2 style="font-family: 'Pinyon Script', cursive;" class="column-heading"><strong>Find a place for a date</strong></h2> 
 				<div class="grid-item"><img class="little_icons" src="https://img.icons8.com/cotton/64/000000/triumphal-arch--v2.png"></div>
 				<p>Ready to go out on a date? Click here to find an ideal place in your destination city.</p>
                 <form method="POST" action="{{url_for('planning')}}">
-				<button type="submit" class="btn btn-info">
+                <label>Enter a city and activity:</label>
+                <input style="margin-bottom:10px;" name="param" class="form-control" placeholder="Museum New York">
+
+                    <button type="submit" class="btn btn-info">
 				   <span class="glyphicon glyphicon-film btn-l"></span> Plan a Date
 				</button>
                 </form>

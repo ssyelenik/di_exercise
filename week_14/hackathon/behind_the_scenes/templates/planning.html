@@ -1,0 +1,22 @@
+{% extends 'base2.html' %}
+        {% block content %}
+        <div class="container" style="color:white;font-weight:bold;background-color:rgb(100, 149, 104);opacity:.7;border:2px solid silver;">
+            <div style="padding:20px;">
+            <h1 style="font-size:80px;font-family: 'Pinyon Script', cursive;">Your search results: Have fun!</h1>
+            <ul>
+                <li style="font-size:30px;">
+                    {{place_details['address']}}
+                </li>
+                <li style="font-size:30px;">
+                    {{place_details['name']}}
+                </li>
+
+                <li style="font-size:30px;" >
+                    {{place_details['open']}}
+                </li>
+
+            </ul>
+            <a href="{{place_details['url']}}" style="font-size:30px;color:white;"><i>Click here to view a map and photo</i></a>
+            </div>
+        </div>
+        {% endblock content%}

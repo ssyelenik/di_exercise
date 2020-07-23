@@ -4,11 +4,13 @@ from . import db
 from . import models
 from . import forms
 from . import daters
+from . import search
 
 global gender
 global alias
 global password
-
+global active
+active=False
 alias=""
 gender=""
 password=""
@@ -84,6 +86,8 @@ def dating_survey():
 
 def save_msg(msg,recipient):
     global alias
+    global active
+    active=True
     if gender=="man":
         print(msg,recipient)
         sender_obj=models.Man.query.filter_by(alias=alias).first()
@@ -156,8 +160,11 @@ def searching():
 
 @app.route("/view_dates", methods=['GET','POST'])
 def view_dates():
-    print(gender)
-    print(alias,password)
+    global active
+    if active:
+        flask.flash(f"{alias}, you are in active communication with someone.")
+        flask.flash("Please deactivate your communication if you would like to search the database again.")
+        return flask.redirect(flask.url_for('dater_view'))
     search_method=flask.request.form['search']
     people_found=[]
     if gender=="man":
@@ -270,7 +277,30 @@ def view_dates():
 
 @app.route("/planning", methods=['GET','POST'])
 def planning():
-    return flask.render_template("planning.html",alias=alias)
+    place_details={}
+    param=flask.request.form['param']
+    search_results=search.make_plans(param)
+    print(search_results)
+    place_details['address']=search_results['candidates'][0]['formatted_address']
+    print(place_details['address'])
+    place_details['name']=search_results['candidates'][0]['name']
+    print(place_details['name'])
+    try:
+        open=search_results['candidates'][0]['opening_hours']
+        if open:
+            place_details['open']="Open now"
+        else:
+            place_details['open']="Not open now"
+    except:
+        place_details['open']="Opening times unknown"
+    print(place_details['open'])
+    url=str(search_results['candidates'][0]['photos'][0]['html_attributions'])
+    print(url)
+    start=url.find('="')+2
+    end=url.find(">")-1
+    place_details['url']=url[slice(start,end)]
+    print(place_details)
+    return flask.render_template("planning.html",alias=alias,place_details=place_details)
 
 @app.route("/send_msg", methods=['GET','POST'])
 def send_msg():
@@ -328,3 +358,17 @@ def logout():
             return flask.redirect(flask.url_for('dating_survey'))
 
     return flask.render_template("logout.html")
+
+@app.route("/deactivate", methods=['GET','POST'])
+def deactivate():
+    global active
+    if flask.request.method=="POST":
+        try:
+            cancel=flask.request.form['cancel']
+            return flask.redirect(flask.url_for('dater_view'))
+        except:
+            pass
+        active=False
+        flask.flash(f"{alias}, you just deactivated your communication. You can search the database and contact someone else.")
+        return flask.redirect(flask.url_for('dater_view'))
+    return flask.render_template("deactivate.html")
