@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My School</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <style>
+        html, body{
+          height:100%;
+          width:100%;
+        }
+        .navbar-nav{
+          margin-left:auto;
+        }
+        .row{
+          margin: 0px;
+        }
+        .sidebar{
+          height:100%;
+          background-color: ghostwhite;
+        }
+        .card-link{
+            decoration:none;
+            color:black;
+        }
+        .prod-image{
+          width:inherit;
+          height:inherit;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{url_for('home')}}"><i>My School</i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('add')}}">Add</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('login')}}">Login</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+    <div class="container" style="background-color:yellow;">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+         {% for message in messages %}
+            {{ message }}
+         {% endfor %}
+      {% endif %}
+    {% endwith %}
+    </div>
+            <div class = "container">
+
+            {% block content %}
+            {% endblock %}
+            </div>
+</body>
