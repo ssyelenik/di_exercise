@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+        <h1>Here's a list of our amazing blogs!!!</h1>
+        <hr><br>
+{% for i in range(start,limit)%}
+<form action="{{url_for('view_blog')}}" method="POST">
+    <div>
+        <h2>{{blogs[i].headline}}</h2>
+        <p><button type="submit" name="view_blog" value="{{blogs[i].headline}}">View Blog</button></p>
+    </div>
+</form>
+{% endfor %}
+<form action="" method="POST">
+    <div class="form-group">
+        <label>Number of blogs displayed per page:</label>
+        <select class="form-control" name="limit" onchange="this.form.submit()">
+            <option {% if limit-start<=5 %}selected{% endif %}>5</option>
+            <option {% if limit-start<=10 and limit-start>5 %}selected{% endif %} >10</option>
+            <option {% if limit-start<=15 and limit-start>10 %}selected{% endif %}>15</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" value="prev" name="prev" class="previous round">&#8249;</button>
+        <button type="submit" value="next" name="next" class="next round">&#8250;</button>
+    </div>
+</form>
+{% endblock %}
