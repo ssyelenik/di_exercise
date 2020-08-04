@@ -1,0 +1,31 @@
+{% include '/partials/header.html' %}
+{% include '/partials/navbar.html' %}
+<div class="container">
+
+    <h1 style="margin-top:30px;">All the new films</h1><hr>
+
+    <div style="display:flex; flex-wrap:wrap;">
+        {% for film in films %}
+            <div class="card" style="width: 18rem;margin-right:10px;border-radius:5%;">
+                <div class="card-body">
+                    <h3 class="card-title">{{film.title}} BY
+                        {% for j in range(film.film_dir|length) %}
+                            {{film.film_dir[j].first_name}} {{film.film_dir[j].last_name}}
+                        {% if j+1<film.film_cat|length %} and {% endif %}
+                        {% endfor %}
+                    </h3>
+                    <h6 class="card-title">Release Date: {{film.release_date}}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Category:
+                        {% for i in range(film.film_cat|length) %}
+                         {{film.film_cat[i].name}},
+                        {% endfor %}
+                    </h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Country: {{film.origin.name}}</h6>
+                    <a href="{{url_for('modifyDirector',dir=film.film_dir[0].id)}}" class="card-link">Modify the Director</a><hr>
+                    <a href="{{url_for('modifyFilm',title=film.title)}}" class="card-link">Modify the Film</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% include '/partials/footer.html' %}

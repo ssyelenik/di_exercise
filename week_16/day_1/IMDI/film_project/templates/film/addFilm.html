@@ -1,0 +1,30 @@
+{% include '/partials/header.html' %}
+{% include '/partials/navbar.html' %}
+    <div class="container">
+        <h1  style="margin-top:30px;">Add a Film</h1><hr><br>
+        <form action="" method="POST">
+            <div>
+                {{form.title.label}} {{form.title}}
+                </div>
+            <div>
+                {{form.release_date.label}} {{form.release_date}}
+                </div>
+            <div>
+                {{form.category.label}} {{form.category}}
+                </div>
+            <div>
+                {{form.director.label}} {{form.director}}
+                </div>
+            <div>
+                {{form.country_of_origin.label}} {{form.country_of_origin}}
+                </div>
+            <div>
+                {{form.available_in_countries.label}} {{form.available_in_countries}}
+                </div>
+            <div style="margin-bottom:25px;">
+                {{form.submit}}
+                </div>
+        </form>
+    </div>
+{% include '/partials/footer.html' %}
+
