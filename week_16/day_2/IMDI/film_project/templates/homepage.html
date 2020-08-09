@@ -1,0 +1,52 @@
+{% include '/partials/header.html' %}
+{% include '/partials/navbar.html' %}
+{% if current_user.is_authenticated %}
+<div class="container">
+
+    <h1 style="margin-top:30px;">All the new films</h1><hr>
+
+    <div style="display:flex; flex-wrap:wrap;">
+        {% for film in films %}
+            <div class="card" style="width: 18rem;margin-right:10px;border-radius:5%;">
+                <img class="card-img-top" src="{{film.pho.photo}}" alt="{{film.pho.explanation_img}}">
+                <div class="card-body">
+                    <h3 class="card-title">{{film.title}} {% if film.film_dir %} BY
+                        {% for j in range(film.film_dir|length) %}
+                            {{film.film_dir[j].first_name}} {{film.film_dir[j].last_name}}
+                        {% if j+1<film.film_dir|length %} and {% endif %}
+                        {% endfor %}
+                        {% else %} (Director not recorded) {% endif %}
+
+                    </h3>
+                    <h6 class="card-title">Release Date: {{film.release_date}}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Category:
+                        {% for i in range(film.film_cat|length) %}
+                         {{film.film_cat[i].name}},
+                        {% endfor %}
+                    </h6>
+                    {% if film.avg_rating %}
+                    <h6  class="card-subtitle mb-2 text-muted">Rating: <img style="width:100px;" {% if film.avg_rating==0 %} src="static\0stars.jpg" {% elif film.avg_rating==1 %} src="static\1stars.jpg" {% elif film.avg_rating==2 %} src="static\2stars.jpg" {% elif film.avg_rating ==3 %} src="static\3stars.jpg" {% elif film.avg_rating == 4 %} src="static\4stars.jpg" {% else %} src="static\5stars.jpg">  {% endif %}     </h6>
+
+                    {% endif %}
+                    <h6 class="card-subtitle mb-2 text-muted">Comments: </h6>
+                        <ul>
+                        {% for rating in film.film_rating %} <li>{{rating.comment}} </li>{% endfor %}
+                        </ul>
+                    {% if role=='Admin' %}
+                    <h6 class="card-subtitle mb-2 text-muted">Country: {{film.origin.name}}</h6>
+                    {% if film.film_dir %}
+                    <a href="{{url_for('main.modifyDirector',dir=film.film_dir[0].id)}}" class="card-link">Modify the Director</a><hr>
+                    {% endif %}
+                    <a href="{{url_for('main.modifyFilm',title=film.title)}}" class="card-link">Modify the Film</a>
+                    {% else %}
+                    <a href="{{url_for('main.rateFilm',title=film.title)}}" class="card-link">Rate the Film</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+        {% else %}
+        <h1 style="height:700px;">Please Login!</h1>
+        {% endif %}
+{% include '/partials/footer.html' %}

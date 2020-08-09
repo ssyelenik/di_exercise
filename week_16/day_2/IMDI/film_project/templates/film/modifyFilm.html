@@ -1,0 +1,25 @@
+{% include '/partials/header.html' %}
+{% include '/partials/navbar.html' %}
+    <div class="container">
+        <h1  style="margin-top:30px;">Modify Film <i>{{film.title}}</i></h1><hr><br>
+        <form action="" method="POST">
+            <div>
+                {{form.title.label}} {{form.title(placeholder=film.title)}}
+                </div>
+            <div>
+                {{form.release_date.label}} {{form.release_date(placeholder=film.release_date)}}
+                </div>
+            <div>
+                {{form.category.label}} {{form.category}}
+                </div>
+
+            <div>
+                {{form.country_of_origin.label}} {{form.country_of_origin}}
+                </div>
+
+            <div style="margin-bottom:25px;">
+                {{form.submit}}
+                </div>
+        </form>
+    </div>
+{% include '/partials/footer.html' %}

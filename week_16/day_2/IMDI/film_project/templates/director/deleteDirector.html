@@ -1,0 +1,16 @@
+{% include '/partials/header.html' %}
+{% include '/partials/navbar.html' %}
+    <div class="container">
+        <h1  style="margin-top:30px;">Choose a Director to Delete</i></h1><hr><br>
+        <form action="" method="POST">
+            <div>
+                {{form.director.label}} {{form.director}}
+            </div>
+
+
+            <div  style="margin-bottom:25px;">
+                {{form.submit}}
+                </div>
+        </form>
+    </div>
+{% include '/partials/footer.html' %}

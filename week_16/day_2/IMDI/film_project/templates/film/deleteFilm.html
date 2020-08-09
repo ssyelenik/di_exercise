@@ -1,0 +1,15 @@
+{% include '/partials/header.html' %}
+{% include '/partials/navbar.html' %}
+    <div class="container">
+        <h1  style="margin-top:30px;">Choose a Film to Delete</i></h1><hr><br>
+        <form action="" method="POST">
+            <div>
+                {{form.title.label}} {{form.title}}
+                </div>
+
+            <div style="margin-bottom:25px;">
+                {{form.submit}}
+                </div>
+        </form>
+    </div>
+{% include '/partials/footer.html' %}

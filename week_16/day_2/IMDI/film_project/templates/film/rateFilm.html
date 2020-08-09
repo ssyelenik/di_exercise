@@ -1,0 +1,19 @@
+{% include '/partials/header.html' %}
+{% include '/partials/navbar.html' %}
+    <div class="container">
+        <h1  style="margin-top:30px;">Rate Film <i>{{film.title}}</i></h1><hr><br>
+        <form action="" method="POST">
+            <div>
+                {{form.num.label}} {{form.num}}
+                </div>
+            <div>
+                {{form.comment.label}} {{form.comment}}
+                </div>
+
+
+            <div style="margin-bottom:25px;">
+                {{form.submit.label}} {{form.submit(value=film.title)}}
+                </div>
+        </form>
+    </div>
+{% include '/partials/footer.html' %}

@@ -1,0 +1,70 @@
+<nav style="background-color:teal;" class="navbar navbar-expand-lg navbar-dark">
+    {% if current_user.is_authenticated %}
+  <a class="navbar-brand" href="#">IMDI</a>
+    {% else %}
+  <a class="navbar-brand" href="#">IMDI : Welcome to the website</a>
+    {% endif %}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          {% if current_user.is_authenticated %}
+        <a class="nav-link" href="{{url_for('main.homepage')}}">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Welcome</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('auth.profile')}}">Profile</a>
+      </li>
+      {% else %}
+      <a class="nav-link" href="{{url_for('auth.register')}}">Sign Up
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('auth.login')}}">Login</a>
+      </li>
+
+      {% endif %}
+        {% if current_user.is_authenticated and role=="Admin" %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('main.addDirector')}}">Add a Director</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('main.addFilm')}}">Add a Film</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('main.deleteDirector')}}">Delete a Director</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('main.deleteFilm')}}">Delete a Film</a>
+      </li>
+        {% endif %}
+    </ul>
+      {% if current_user.is_authenticated %}
+    <span class="navbar-text white-text">
+      Login as <strong>{{current_user.name}}</strong>
+    </span>
+    <span class="navbar-text white-text">
+        <a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
+    </span>
+      {% endif %}
+  </div>
+</nav>
+
+<div class="container" style="background-color:yellow;">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+         {% for message in messages %}
+            {{ message }}
+         {% endfor %}
+      {% endif %}
+    {% endwith %}
+</div>
